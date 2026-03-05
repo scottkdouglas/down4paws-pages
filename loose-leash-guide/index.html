@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loose-Leash Walking Guide | Down 4 Paws Dog Training</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #613393;
+            --purple-light: #7b4faa;
+            --purple-pale: #f3eef8;
+            --purple-mist: #ece4f4;
+            --orange: #f36e21;
+            --orange-light: #ff8a42;
+            --orange-pale: #fff4ec;
+            --cream: #fefcfa;
+            --warm-white: #faf8f6;
+            --text: #3a3a3a;
+            --text-light: #6b6b6b;
+            --card-shadow: 0 2px 20px rgba(97, 51, 147, 0.08);
+            --card-hover: 0 6px 32px rgba(97, 51, 147, 0.13);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER ── */
+        .site-header {
+            background: white;
+            border-bottom: 3px solid var(--purple);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo img {
+            height: 48px;
+            width: auto;
+        }
+
+        .header-cta {
+            font-family: 'Bubblegum Sans', cursive;
+            background: var(--orange);
+            color: white;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: background 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        .header-cta:hover {
+            background: var(--orange-light);
+            transform: translateY(-1px);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(170deg, var(--purple) 0%, var(--purple-light) 100%);
+            padding: 36px 24px 44px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(243, 110, 33, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-icon {
+            width: 88px;
+            height: 88px;
+            margin: 0 auto 18px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-icon img {
+            width: 62px;
+            height: 62px;
+            object-fit: contain;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .hero-label {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--orange-light);
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: clamp(32px, 6vw, 52px);
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            color: rgba(255,255,255,0.85);
+            max-width: 520px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* ── Curved divider ── */
+        .hero-curve {
+            display: block;
+            margin-top: -1px;
+        }
+
+        .hero-curve svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ── MAIN CONTENT ── */
+        .content-wrap {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── INTRO CARDS ── */
+        .intro-section {
+            padding: 48px 0 16px;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .intro-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px 28px;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.3s, transform 0.3s;
+            border-top: 4px solid var(--purple);
+        }
+
+        .intro-card:hover {
+            box-shadow: var(--card-hover);
+            transform: translateY(-2px);
+        }
+
+        .intro-card h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 24px;
+            color: var(--purple);
+            margin-bottom: 12px;
+        }
+
+        .intro-card p {
+            color: var(--text-light);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* ── STEPS SECTION ── */
+        .steps-section {
+            padding: 48px 0;
+        }
+
+        .section-heading {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: clamp(28px, 4vw, 36px);
+            color: var(--purple);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--orange);
+            border-radius: 2px;
+            margin: 12px auto 0;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 20px;
+            padding: 36px 32px 36px 36px;
+            margin-bottom: 28px;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card:hover {
+            box-shadow: var(--card-hover);
+            transform: translateY(-2px);
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--purple) 0%, var(--orange) 100%);
+            border-radius: 5px 0 0 5px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--purple);
+            color: white;
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 20px;
+            border-radius: 50%;
+            margin-bottom: 14px;
+            flex-shrink: 0;
+        }
+
+        .step-card h3 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 22px;
+            color: var(--purple);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .step-card p {
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 14px;
+            line-height: 1.65;
+            color: var(--text);
+        }
+
+        .step-list li::before {
+            content: '';
+            position: absolute;
+            left: 2px;
+            top: 9px;
+            width: 10px;
+            height: 10px;
+            background: var(--orange);
+            border-radius: 50%;
+            opacity: 0.85;
+        }
+
+        /* ── TIP & TROUBLESHOOT + CTA (purple band) ── */
+        .bottom-band {
+            background: linear-gradient(170deg, var(--purple) 0%, var(--purple-light) 100%);
+            padding: 56px 24px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bottom-band::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(243, 110, 33, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .bottom-band-inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .tip-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+        }
+
+        .tip-card-label {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .tip-card--tip .tip-card-label {
+            color: var(--orange);
+        }
+
+        .tip-card--trouble .tip-card-label {
+            color: var(--purple);
+        }
+
+        .tip-card h3 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .tip-card--tip h3 {
+            color: var(--orange);
+        }
+
+        .tip-card--trouble h3 {
+            color: var(--purple);
+        }
+
+        .tip-card p {
+            color: var(--text-light);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .red-green {
+            font-weight: 600;
+            color: var(--purple);
+        }
+
+        /* ── CTA (inside purple band) ── */
+        .cta-area {
+            text-align: center;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .cta-area h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: clamp(24px, 4vw, 32px);
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .cta-area p {
+            color: rgba(255,255,255,0.85);
+            font-size: 17px;
+            margin-bottom: 28px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            font-family: 'Bubblegum Sans', cursive;
+            background: var(--orange);
+            color: white;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 20px;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(243, 110, 33, 0.35);
+        }
+
+        .cta-button:hover {
+            background: var(--orange-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(243, 110, 33, 0.45);
+        }
+
+        /* ── FOOTER (white bg so logo blends) ── */
+        .site-footer {
+            background: white;
+            color: var(--text-light);
+            padding: 36px 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 44px;
+            margin-bottom: 14px;
+        }
+
+        .footer-contact {
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        .footer-contact a {
+            color: var(--purple);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--orange);
+        }
+
+        .footer-divider {
+            display: inline-block;
+            margin: 0 12px;
+            opacity: 0.3;
+        }
+
+        .footer-copy {
+            margin-top: 12px;
+            font-size: 13px;
+            opacity: 0.45;
+        }
+
+        /* ── SCROLL ANIMATIONS ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 680px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 28px 20px 36px;
+            }
+
+            .hero-icon {
+                width: 72px;
+                height: 72px;
+            }
+
+            .hero-icon img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .step-card {
+                padding: 28px 22px 28px 26px;
+            }
+
+            .cta-banner {
+                padding: 36px 24px;
+                margin: 8px 0 40px;
+            }
+
+            .header-logo img {
+                height: 38px;
+            }
+
+            .header-cta {
+                padding: 8px 18px;
+                font-size: 14px;
+            }
+
+            .intro-card {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="https://down4paws.com" class="header-logo">
+                <img src="images/d4p-logo.png" alt="Down 4 Paws Dog Training">
+            </a>
+            <a href="https://down4paws.com" class="header-cta">Visit Down 4 Paws</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-icon">
+            <img src="images/d4p-icon.png" alt="D4P Dog Icon">
+        </div>
+        <div class="hero-label">Free Training Guide</div>
+        <h1>Loose-Leash Walking</h1>
+        <p class="hero-sub">A step-by-step guide to calm, safe walks with your dog. No pulling, no stress.</p>
+    </section>
+
+    <!-- Curved divider -->
+    <div class="hero-curve">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L1440,0 L1440,20 Q720,60 0,20 Z" fill="#7b4faa"/>
+        </svg>
+    </div>
+
+    <!-- INTRO CARDS -->
+    <div class="content-wrap">
+        <section class="intro-section">
+            <div class="intro-grid">
+                <div class="intro-card fade-up">
+                    <h2>Why train it?</h2>
+                    <p>To spare your arms and your dog's trachea. It is not fun or safe for you to have a dog take you for a walk. Pulling while wearing a collar can actually damage your dog's throat.</p>
+                    <p style="margin-top: 12px;">Since our dogs spend most of their time outside on-leash, training them to walk without pulling is better for everyone.</p>
+                </div>
+                <div class="intro-card fade-up" style="transition-delay: 0.1s;">
+                    <h2>Why do dogs pull?</h2>
+                    <p>To get to whatever is out ahead: great smells, other dogs, open spaces, fun and adventure. Pulling gets dogs to what they want faster. As a strategy, it works.</p>
+                    <p style="margin-top: 12px;">This is why it is best to teach loose-leash walking as early as possible. If you have an expert puller, don't despair. Any dog can learn this.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEPS -->
+        <section class="steps-section">
+            <h2 class="section-heading fade-up">How to Train It</h2>
+
+            <div class="step-card fade-up">
+                <div class="step-number">1</div>
+                <h3>Your dog learns to stand calmly next to you without pulling away</h3>
+                <ul class="step-list">
+                    <li>Load one hand with treats.</li>
+                    <li>Praise and treat when your dog is calm and/or looking at you.</li>
+                    <li>If your dog pulls away from you, don't yank the leash and don't reel him back in. Stand still and wait until he returns to you. If he is very distracted, call his name.</li>
+                    <li>When he comes back to you, praise and treat.</li>
+                </ul>
+            </div>
+
+            <div class="step-card fade-up">
+                <div class="step-number">2</div>
+                <h3>Your dog learns to stay close to you while walking</h3>
+                <ul class="step-list">
+                    <li>With your dog standing calmly next to you, say his name and "Let's go."</li>
+                    <li>Praise and treat after the first step, as long as your dog doesn't dash forward.</li>
+                    <li>Keep walking and praise/treat every other step.</li>
+                    <li>Gradually increase the number of steps in between rewards.</li>
+                    <li>If your dog starts pulling, stop and wait until there is some slack in the leash again. Then take a step with him and reward him quickly for walking near you.</li>
+                    <li>Keep him guessing. Sometimes reward after 1 step, sometimes after 5, then again after 2, then after 7.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- TIP, TROUBLESHOOTING & CTA (purple band) -->
+    <section class="bottom-band">
+        <div class="bottom-band-inner">
+            <div class="tip-card tip-card--tip fade-up">
+                <div class="tip-card-label">Training Tip</div>
+                <h3>Timing matters</h3>
+                <p>Try practicing loose-leash walking after your dog has had some vigorous exercise. He will be much easier to work with then.</p>
+            </div>
+            <div class="tip-card tip-card--trouble fade-up">
+                <div class="tip-card-label">Troubleshooting</div>
+                <h3>Red Light / Green Light</h3>
+                <p>If your dog pulls and you don't get a chance to click and treat, apply <span class="red-green">red light / green light</span>.<br><br>As soon as your dog pulls and the leash goes tight, stop. Wait for the leash to loosen even just a little bit and then walk forward.</p>
+                <p style="margin-top: 10px;">Your dog needs to learn that a tight leash is a red light that stops the walk. A loose leash is a green light that means more walking.</p>
+            </div>
+
+            <div class="cta-area fade-up">
+                <h2>Ready for calm, connected walks?</h2>
+                <p>Down 4 Paws helps families build confidence and real-life skills with their dogs.</p>
+                <a href="https://down4paws.com" class="cta-button">Visit Down 4 Paws</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <img src="images/d4p-logo.png" alt="Down 4 Paws" class="footer-logo">
+        <div class="footer-contact">
+            <a href="https://down4paws.com">www.down4paws.com</a>
+            <span class="footer-divider">|</span>
+            <a href="mailto:pamela@down4paws.com">pamela@down4paws.com</a>
+        </div>
+        <div class="footer-copy">&copy; 2026 Down 4 Paws Dog Training. All rights reserved.</div>
+    </footer>
+
+    <script>
+        // Scroll-triggered fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
