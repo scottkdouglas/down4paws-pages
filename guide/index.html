@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 5 Rules of Recall | Down 4 Paws Dog Training</title>
+    <meta name="description" content="Learn the 5 simple rules that make recall stick. A free guide from Down 4 Paws Dog Training to help your dog come when called — every time.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #613393;
+            --purple-light: #7b4faa;
+            --purple-pale: #f3eef8;
+            --purple-mist: #ece4f4;
+            --orange: #f36e21;
+            --orange-light: #ff8a42;
+            --orange-pale: #fff4ec;
+            --cream: #fefcfa;
+            --warm-white: #faf8f6;
+            --text: #3a3a3a;
+            --text-light: #6b6b6b;
+            --card-shadow: 0 2px 20px rgba(97, 51, 147, 0.08);
+            --card-hover: 0 6px 32px rgba(97, 51, 147, 0.13);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.7;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER ── */
+        .site-header {
+            background: white;
+            border-bottom: 3px solid var(--purple);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo img {
+            height: 48px;
+            width: auto;
+        }
+
+        .header-cta {
+            font-family: 'Bubblegum Sans', cursive;
+            background: var(--orange);
+            color: white;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: background 0.2s, transform 0.2s;
+            white-space: nowrap;
+        }
+
+        .header-cta:hover {
+            background: var(--orange-light);
+            transform: translateY(-1px);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(170deg, var(--purple) 0%, var(--purple-light) 100%);
+            padding: 48px 24px 56px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(243, 110, 33, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-icon {
+            width: 88px;
+            height: 88px;
+            margin: 0 auto 18px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-icon img {
+            width: 62px;
+            height: 62px;
+            object-fit: contain;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .hero-label {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--orange-light);
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: clamp(34px, 6vw, 54px);
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            color: rgba(255,255,255,0.88);
+            max-width: 540px;
+            margin: 0 auto;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* ── Curved divider ── */
+        .hero-curve {
+            display: block;
+            margin-top: -1px;
+        }
+
+        .hero-curve svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ── MAIN CONTENT ── */
+        .content-wrap {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── WHY SECTION ── */
+        .why-section {
+            padding: 48px 0 16px;
+        }
+
+        .why-card {
+            background: white;
+            border-radius: 16px;
+            padding: 36px 32px;
+            box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--purple);
+        }
+
+        .why-card h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 28px;
+            color: var(--purple);
+            margin-bottom: 16px;
+        }
+
+        .why-card p {
+            color: var(--text-light);
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .why-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── RULES SECTION ── */
+        .rules-section {
+            padding: 48px 0;
+        }
+
+        .section-heading {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: clamp(28px, 4vw, 38px);
+            color: var(--purple);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--orange);
+            border-radius: 2px;
+            margin: 12px auto 0;
+        }
+
+        .rule-card {
+            background: white;
+            border-radius: 20px;
+            padding: 36px 32px 36px 36px;
+            margin-bottom: 28px;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rule-card:hover {
+            box-shadow: var(--card-hover);
+            transform: translateY(-2px);
+        }
+
+        .rule-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--purple) 0%, var(--orange) 100%);
+            border-radius: 5px 0 0 5px;
+        }
+
+        .rule-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: var(--purple);
+            color: white;
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 22px;
+            border-radius: 50%;
+            margin-bottom: 14px;
+            flex-shrink: 0;
+        }
+
+        .rule-card h3 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 23px;
+            color: var(--purple);
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .rule-card p {
+            margin-bottom: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .rule-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .rule-why {
+            background: var(--purple-pale);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-top: 16px;
+        }
+
+        .rule-why-label {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 16px;
+            color: var(--orange);
+            margin-bottom: 6px;
+        }
+
+        .rule-why p {
+            color: var(--text);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        /* ── HOW TO TRAIN IT ── */
+        .train-section {
+            padding: 0 0 48px;
+        }
+
+        .train-card {
+            background: white;
+            border-radius: 20px;
+            padding: 36px 32px 36px 36px;
+            margin-bottom: 28px;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .train-card:hover {
+            box-shadow: var(--card-hover);
+            transform: translateY(-2px);
+        }
+
+        .train-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--orange) 0%, var(--purple) 100%);
+            border-radius: 5px 0 0 5px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: var(--orange);
+            color: white;
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 22px;
+            border-radius: 50%;
+            margin-bottom: 14px;
+            flex-shrink: 0;
+        }
+
+        .train-card h3 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 23px;
+            color: var(--orange);
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .train-card p {
+            margin-bottom: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .train-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .train-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .train-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 14px;
+            line-height: 1.65;
+            color: var(--text);
+        }
+
+        .train-list li::before {
+            content: '';
+            position: absolute;
+            left: 2px;
+            top: 9px;
+            width: 10px;
+            height: 10px;
+            background: var(--orange);
+            border-radius: 50%;
+            opacity: 0.85;
+        }
+
+        /* ── BOTTOM BAND (purple) ── */
+        .bottom-band {
+            background: linear-gradient(170deg, var(--purple) 0%, var(--purple-light) 100%);
+            padding: 56px 24px 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bottom-band::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(243, 110, 33, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .bottom-band-inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* ── Tip cards inside bottom band ── */
+        .tip-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+        }
+
+        .tip-card-label {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .tip-card--remember .tip-card-label {
+            color: var(--orange);
+        }
+
+        .tip-card--remember h3 {
+            color: var(--orange);
+        }
+
+        .tip-card--protip .tip-card-label {
+            color: var(--purple);
+        }
+
+        .tip-card--protip h3 {
+            color: var(--purple);
+        }
+
+        .tip-card h3 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .tip-card p {
+            color: var(--text-light);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .tip-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── CTA AREA ── */
+        .cta-area {
+            text-align: center;
+            margin-top: 44px;
+            position: relative;
+        }
+
+        .cta-area h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: clamp(26px, 4.5vw, 36px);
+            color: white;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .cta-area p {
+            color: rgba(255,255,255,0.88);
+            font-size: 17px;
+            margin-bottom: 10px;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-area p:last-of-type {
+            margin-bottom: 28px;
+        }
+
+        .cta-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 28px;
+            margin-bottom: 32px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .cta-features li {
+            color: rgba(255,255,255,0.92);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .cta-features li::before {
+            content: '\2713';
+            color: var(--orange-light);
+            font-weight: 700;
+            margin-right: 6px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            font-family: 'Bubblegum Sans', cursive;
+            background: var(--orange);
+            color: white;
+            text-decoration: none;
+            padding: 18px 44px;
+            border-radius: 50px;
+            font-size: 21px;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(243, 110, 33, 0.35);
+        }
+
+        .cta-button:hover {
+            background: var(--orange-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(243, 110, 33, 0.45);
+        }
+
+        .cta-subtext {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 14px;
+        }
+
+        /* ── FOOTER ── */
+        .site-footer {
+            background: white;
+            color: var(--text-light);
+            padding: 36px 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 44px;
+            margin-bottom: 14px;
+        }
+
+        .footer-contact {
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        .footer-contact a {
+            color: var(--purple);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--orange);
+        }
+
+        .footer-divider {
+            display: inline-block;
+            margin: 0 12px;
+            opacity: 0.3;
+        }
+
+        .footer-copy {
+            margin-top: 12px;
+            font-size: 13px;
+            opacity: 0.45;
+        }
+
+        /* ── SCROLL ANIMATIONS ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 680px) {
+            .hero {
+                padding: 36px 20px 44px;
+            }
+
+            .hero-icon {
+                width: 72px;
+                height: 72px;
+            }
+
+            .hero-icon img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .rule-card,
+            .train-card {
+                padding: 28px 22px 28px 26px;
+            }
+
+            .header-logo img {
+                height: 38px;
+            }
+
+            .header-cta {
+                padding: 8px 18px;
+                font-size: 14px;
+            }
+
+            .why-card {
+                padding: 28px 22px;
+            }
+
+            .cta-features {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .bottom-band {
+                padding: 40px 20px 52px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="https://down4paws.com" class="header-logo">
+                <img src="images/d4p-logo.png" alt="Down 4 Paws Dog Training">
+            </a>
+            <a href="https://recall.down4paws.com/" class="header-cta">Get the 30-Day Course</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-icon">
+            <img src="images/d4p-icon.png" alt="D4P Dog Icon">
+        </div>
+        <div class="hero-label">Free Training Guide</div>
+        <h1>The 5 Rules of Recall</h1>
+        <p class="hero-sub">A simple, clear system to teach your dog to come when called. No tricks. Just the rules that actually work.</p>
+    </section>
+
+    <!-- Curved divider -->
+    <div class="hero-curve">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L1440,0 L1440,20 Q720,60 0,20 Z" fill="#7b4faa"/>
+        </svg>
+    </div>
+
+    <!-- WHY TRAIN RECALL -->
+    <div class="content-wrap">
+        <section class="why-section">
+            <div class="why-card fade-up">
+                <h2>Why train recall?</h2>
+                <p>Recall is the single most important thing you can teach your dog. It keeps them safe near busy roads, unfamiliar areas, and around other animals.</p>
+                <p>It also strengthens the bond between you and your dog. When your dog comes running back to you, that is trust in action. That is your relationship working.</p>
+                <p>We're going to make this easier, not harder. These five rules give you a clear foundation so your dog actually wants to come back to you.</p>
+            </div>
+        </section>
+
+        <!-- THE 5 RULES -->
+        <section class="rules-section">
+            <h2 class="section-heading fade-up">The 5 Rules</h2>
+
+            <!-- Rule 1 -->
+            <div class="rule-card fade-up">
+                <div class="rule-number">1</div>
+                <h3>Never call your dog for anything unpleasant</h3>
+                <p>No calling them for nail clipping, baths, or clipping the leash on to go home from the park. If it might give your dog pause next time you call, go get them instead.</p>
+                <div class="rule-why">
+                    <div class="rule-why-label">Why this matters</div>
+                    <p>Dogs have great memories. They connect what happens after they come to you with the recall cue itself. If "come" means bath time or leaving the park, your dog learns to hesitate. Keep recall connected to good things only.</p>
+                </div>
+            </div>
+
+            <!-- Rule 2 -->
+            <div class="rule-card fade-up">
+                <div class="rule-number">2</div>
+                <h3>Only call when you're sure they'll come</h3>
+                <p>Every recall should be a successful recall. Work at your dog's level. If they have a kindergarten-level recall, don't give them a graduate-level assignment like being called away from a cat in a tree.</p>
+                <div class="rule-why">
+                    <div class="rule-why-label">Why this matters</div>
+                    <p>Set your dog up for success. Calling when they're not likely to come just practices failure. Assess where your dog is right now and work at that level. You can gradually increase difficulty as their recall gets stronger.</p>
+                </div>
+            </div>
+
+            <!-- Rule 3 -->
+            <div class="rule-card fade-up">
+                <div class="rule-number">3</div>
+                <h3>If they don't come, make it happen</h3>
+                <p>Called your dog and got ignored? Walk over to them. Put a treat right in front of their nose. Back up so they follow you. You just made the recall happen.</p>
+                <div class="rule-why">
+                    <div class="rule-why-label">Why this matters</div>
+                    <p>"Come" can never be optional. Every time your dog hears the cue, something needs to happen. This builds the habit. Always carry treats during recall training so you're ready for these moments.</p>
+                </div>
+            </div>
+
+            <!-- Rule 4 -->
+            <div class="rule-card fade-up">
+                <div class="rule-number">4</div>
+                <h3>Never repeat the cue</h3>
+                <p>Resist the urge to call over and over. "Come. Come! COME!" just teaches your dog to tune out the word. Call once. If they don't respond, use Rule 3.</p>
+                <div class="rule-why">
+                    <div class="rule-why-label">Why this matters</div>
+                    <p>Repeating the cue trains your dog to ignore it. One call, one response. That is the habit you're building. If they don't come on the first call, go make it happen instead of yelling louder.</p>
+                </div>
+            </div>
+
+            <!-- Rule 5 -->
+            <div class="rule-card fade-up">
+                <div class="rule-number">5</div>
+                <h3>Great rewards get great recalls</h3>
+                <p>Your dog is out there sniffing amazing things, playing with friends, exploring the world. If you want them to leave all that and come running to you, make it worth their while. Use high-value treats. No dry biscuits. Think cheese, meat, or a well-thrown ball if that is what your dog loves.</p>
+                <div class="rule-why">
+                    <div class="rule-why-label">Why this matters</div>
+                    <p>You're competing with everything the world has to offer. The reward needs to match the ask. Figure out what your dog truly values and bring that with you every time. Coming to you should feel like hitting the jackpot.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW TO TRAIN IT -->
+        <section class="train-section">
+            <h2 class="section-heading fade-up">How to Train It</h2>
+
+            <div class="train-card fade-up">
+                <div class="step-number">1</div>
+                <h3>Call your dog clearly</h3>
+                <ul class="train-list">
+                    <li>Use a cheerful tone. Be loud enough to be heard, especially outside.</li>
+                    <li>Give the cue clearly: "[Name], come!" One time.</li>
+                    <li>Consistency matters here. Use the same word every time so your dog knows exactly what you're asking.</li>
+                </ul>
+            </div>
+
+            <div class="train-card fade-up">
+                <div class="step-number">2</div>
+                <h3>Make yourself the best thing out there</h3>
+                <ul class="train-list">
+                    <li>Clap, whistle, squat down, throw your arms open. Be exciting.</li>
+                    <li>When your dog arrives, ask for a sit, then reward with treats, a toy, or play.</li>
+                    <li>Try "jackpot" rewards for fast recalls or long-distance ones. Multiple high-value treats at once.</li>
+                    <li>If you called them away from playing with other dogs, let them go back after the reward. Coming to you should never mean the fun is over.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- BOTTOM BAND -->
+    <section class="bottom-band">
+        <div class="bottom-band-inner">
+            <div class="tip-card tip-card--remember fade-up">
+                <div class="tip-card-label">Remember</div>
+                <h3>This is very normal</h3>
+                <p>Recall takes time and patience. Your dog is still learning, not being bad.</p>
+                <p>Practice often. Reward every success. Gradually, your dog will start running toward you because they want to, not because they have to.</p>
+            </div>
+
+            <div class="tip-card tip-card--protip fade-up">
+                <div class="tip-card-label">Pro Tip</div>
+                <h3>Calm first, skills second</h3>
+                <p>Try practicing recall after your dog has had some exercise and can think more clearly. A tired dog is a more focused dog.</p>
+                <p>Start in low-distraction places like your living room or backyard. Build up to the park, the trail, and the real world slowly.</p>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-area fade-up">
+                <h2>Ready to go deeper?</h2>
+                <p>These 5 rules are the foundation. The 30-Day Recall Course gives you the complete system to make recall stick in the real world.</p>
+                <p>19 email lessons. 5-10 minutes a day. The same method Pam teaches her private training clients.</p>
+                <ul class="cta-features">
+                    <li>30-Day Step-by-Step System</li>
+                    <li>Works for Any Breed, Any Age</li>
+                    <li>Lifetime Access</li>
+                </ul>
+                <a href="https://recall.down4paws.com/" class="cta-button">Get the 30-Day Recall Course</a>
+                <p class="cta-subtext">Early bird pricing available for the first 50 members</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <img src="images/d4p-logo.png" alt="Down 4 Paws" class="footer-logo">
+        <div class="footer-contact">
+            <a href="https://down4paws.com">www.down4paws.com</a>
+            <span class="footer-divider">|</span>
+            <a href="mailto:pamela@down4paws.com">pamela@down4paws.com</a>
+        </div>
+        <div class="footer-copy">&copy; 2026 Down 4 Paws Dog Training. All rights reserved.</div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
