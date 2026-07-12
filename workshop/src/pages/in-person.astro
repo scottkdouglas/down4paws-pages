@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="In-Person Workshop: Real-World Calm Walks | Down 4 Paws Dog Training"
-  description="Hands-on small group workshop in Norwood, MA on May 6. Practice calm walking with real distractions, real dogs, and direct coaching from Pam Brown. Limited to 4-6 families."
+  title="Calm Walks Workshop: Hands-On Coaching for Reactive Dogs | July 22 | Down 4 Paws"
+  description="A 90-minute hands-on workshop in Norwood, MA on Wednesday, July 22. Practice the Down 4 Paws Method with your own dog while Pam Brown coaches you through every step. Limited to 10 working teams. $99 early registration."
 >
   <!-- HEADER -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
@@ -16,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
         href="#register"
         class="relative z-10 font-display text-sm md:text-base bg-orange text-white px-5 py-2 rounded-full hover:bg-orange-bright transition-all duration-200 hover:shadow-lg hover:shadow-orange/20 hover:-translate-y-px"
       >
-        Reserve Your Spot
+        Reserve My Spot
       </a>
     </div>
   </header>
@@ -31,33 +31,37 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="md:col-span-7 space-y-6">
           <div class="inline-flex items-center gap-2.5 bg-orange/8 border border-orange/12 rounded-full px-4 py-1.5">
-            <span class="w-2 h-2 bg-orange rounded-full"></span>
-            <span class="text-orange text-xs font-bold tracking-widest uppercase">Limited to 4-6 Families</span>
+            <span class="w-2 h-2 bg-orange rounded-full animate-pulse"></span>
+            <span class="text-orange text-xs font-bold tracking-widest uppercase">Hands-On Workshop &middot; 10 Teams Max</span>
           </div>
 
           <h1>
             <span class="block font-display text-charcoal text-[clamp(2rem,5.5vw,3.8rem)] leading-[1.1] mb-2">
-              Real-World Calm Walks.
+              The Advice Makes Sense at Home.
+            </span>
+            <span class="block font-display text-charcoal text-[clamp(2rem,5.5vw,3.8rem)] leading-[1.1] mb-2">
+              Then Another Dog Shows Up,
             </span>
             <span class="block font-display text-orange text-[clamp(2rem,5.5vw,3.8rem)] leading-[1.1]">
-              Hands-On Training for Busy Families.
+              And It All Falls Apart.
             </span>
           </h1>
 
           <p class="text-warm-gray text-lg md:text-xl leading-relaxed max-w-lg">
-            A 90-minute small group workshop where you and your dog practice together, outside, with real distractions and direct coaching from Pam. Not a lecture. Not a demo. You do the work, and I'm right there with you.
+            A 90-minute working workshop where you and your dog practice calm walks together, outside, with Pam coaching you through every rep. You'll learn to read your dog, catch stress early, and handle real moments while they're actually happening.
           </p>
 
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-3 items-center">
             <a
               href="#register"
               class="inline-flex items-center gap-3 font-display bg-purple text-white text-lg px-7 py-3.5 rounded-full hover:bg-purple-deep transition-all duration-200 hover:shadow-xl hover:shadow-purple/20 hover:-translate-y-px group"
             >
-              Reserve Your Spot
+              Reserve My Spot
               <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
-            <span class="inline-flex items-center font-display text-purple text-lg px-4 py-3.5">
-              $99 per family
+            <span class="inline-flex flex-col px-2 py-1">
+              <span class="font-display text-purple text-lg leading-tight">$99 early registration</span>
+              <span class="text-warm-gray text-xs">$119 after Saturday, July 18</span>
             </span>
           </div>
         </div>
@@ -74,7 +78,7 @@ import Layout from '../layouts/Layout.astro';
                     <svg class="w-4 h-4 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                   </div>
                   <div>
-                    <p class="text-charcoal font-semibold text-sm">Wednesday, May 6</p>
+                    <p class="text-charcoal font-semibold text-sm">Wednesday, July 22</p>
                     <p class="text-warm-gray text-xs">6:30 PM - 8:00 PM</p>
                   </div>
                 </div>
@@ -92,8 +96,8 @@ import Layout from '../layouts/Layout.astro';
                     <svg class="w-4 h-4 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                   </div>
                   <div>
-                    <p class="text-charcoal font-semibold text-sm">Small Group (4-6 Families)</p>
-                    <p class="text-warm-gray text-xs">90 minutes with individual coaching</p>
+                    <p class="text-charcoal font-semibold text-sm">Limited to 10 Working Teams</p>
+                    <p class="text-warm-gray text-xs">Individual coaching for every team</p>
                   </div>
                 </div>
               </div>
@@ -103,13 +107,14 @@ import Layout from '../layouts/Layout.astro';
               <!-- Pricing -->
               <div class="space-y-2">
                 <div class="flex justify-between items-baseline">
-                  <p class="text-charcoal font-semibold text-sm">1 dog per family</p>
+                  <p class="text-charcoal font-semibold text-sm">Early registration</p>
                   <p class="font-display text-purple text-lg">$99</p>
                 </div>
                 <div class="flex justify-between items-baseline">
-                  <p class="text-warm-gray text-xs">Second dog (second handler required)</p>
-                  <p class="text-warm-gray font-semibold text-sm">+$40</p>
+                  <p class="text-warm-gray text-xs">After Saturday, July 18</p>
+                  <p class="text-warm-gray font-semibold text-sm">$119</p>
                 </div>
+                <p class="text-warm-gray text-xs pt-2">Each registration covers one dog and up to two people from the same household.</p>
               </div>
             </div>
           </div>
@@ -122,20 +127,27 @@ import Layout from '../layouts/Layout.astro';
       <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-charcoal/10">
         <img
           src="/images/hero-in-person.jpg"
-          alt="A dog and owner walking calmly together outside"
+          alt="A woman walking her dog calmly on a loose leash down a quiet, tree-lined street"
           class="w-full h-auto object-cover"
           loading="eager"
         />
+        <div class="absolute inset-0 flex items-end">
+          <div class="w-full p-4 md:p-6">
+            <span class="bg-white/90 backdrop-blur-sm text-charcoal font-display text-sm md:text-base px-4 py-2 rounded-full shadow-sm">
+              Not a lecture. You and your dog do the work, with Pam beside you.
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY IN-PERSON -->
+  <!-- PAIN OF SUCCESS -->
   <section class="relative bg-charcoal py-20 md:py-28 overflow-hidden">
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
 
     <div class="relative max-w-5xl mx-auto px-5 md:px-8">
-      <p class="font-display text-orange text-sm tracking-widest uppercase mb-8">Why In-Person Matters</p>
+      <p class="font-display text-orange text-sm tracking-widest uppercase mb-8">You've Been Doing the Work</p>
 
       <div class="space-y-8 md:space-y-10">
         <div class="grid md:grid-cols-12 gap-4 items-start">
@@ -146,7 +158,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="md:col-span-11">
             <p class="text-white/90 text-xl md:text-2xl leading-relaxed font-light">
-              You can watch all the videos you want. <span class="text-orange font-medium">Your dog still loses it the second another dog appears.</span>
+              You've watched the videos. Maybe you joined the free workshop. You understand thresholds and triggers now. <span class="text-orange font-medium">Understanding was supposed to be the hard part.</span>
             </p>
           </div>
         </div>
@@ -159,7 +171,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="md:col-span-11">
             <p class="text-white/90 text-xl md:text-2xl leading-relaxed font-light">
-              The skills work in your living room. <span class="text-orange font-medium">The problem is they don't transfer to the sidewalk without practice in the real environment.</span>
+              Then a dog rounds the corner and your brain empties out. Treats in the wrong hand. Leash tight. <span class="text-orange font-medium">Every plan you had is gone in half a second.</span>
             </p>
           </div>
         </div>
@@ -172,7 +184,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="md:col-span-11">
             <p class="text-white/90 text-xl md:text-2xl leading-relaxed font-light">
-              Most owners don't need more information. <span class="text-orange font-medium">They need someone right there saying "now, do this" while it's happening.</span>
+              You replay it on the way home. "I should have turned earlier. I should have stayed calm." <span class="text-orange font-medium">You knew what to do. You just couldn't do it in the moment.</span>
             </p>
           </div>
         </div>
@@ -180,9 +192,55 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="mt-14 md:mt-16 pt-8 border-t border-white/10">
         <p class="font-display text-white text-2xl md:text-3xl max-w-2xl">
-          This workshop puts you and your dog<br/>
-          <span class="text-orange">in the situation and coaches you through it.</span>
+          That's not a knowledge problem. That's a practice problem.<br/>
+          <span class="text-orange">And practice is exactly what this workshop is.</span>
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE METHOD / WHERE THIS FITS -->
+  <section class="bg-white py-20 md:py-28 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
+        <div class="md:col-span-6">
+          <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">The Down 4 Paws Method</p>
+          <h2 class="font-display text-charcoal text-3xl md:text-4xl leading-tight mb-6">
+            Understanding your dog was step one. This is step three.
+          </h2>
+          <div class="space-y-4 text-warm-gray leading-relaxed text-lg">
+            <p>
+              Every family I work with moves through the same four stages. The free online workshop covered the first one: why your dog reacts and what they're feeling when it happens.
+            </p>
+            <p>
+              This workshop is where it becomes real. Your hands on the leash, your dog at your side, and me right there coaching your timing, your spacing, and your decisions.
+            </p>
+            <p class="text-charcoal font-medium">
+              Haven't seen the free online workshop yet? Register anyway and I'll send you the replay, so you arrive ready.
+            </p>
+          </div>
+        </div>
+        <div class="md:col-span-6">
+          <div class="space-y-3">
+            <div class="bg-cream rounded-2xl p-5 border border-beige">
+              <p class="font-display text-purple text-lg mb-1">1. Understand</p>
+              <p class="text-warm-gray text-sm leading-relaxed">Learn why the behavior happens and what your dog is experiencing. Understanding brings relief.</p>
+            </div>
+            <div class="bg-cream rounded-2xl p-5 border border-beige">
+              <p class="font-display text-purple text-lg mb-1">2. Structure</p>
+              <p class="text-warm-gray text-sm leading-relaxed">Build routines and predictability that lower stress for your dog and your family.</p>
+            </div>
+            <div class="bg-purple rounded-2xl p-5 shadow-lg shadow-purple/20 relative">
+              <span class="absolute top-4 right-5 bg-orange text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full">This workshop</span>
+              <p class="font-display text-white text-lg mb-1">3. Practice</p>
+              <p class="text-white/80 text-sm leading-relaxed">Apply the skills where life actually happens, with coaching in the moment. Progress over perfection.</p>
+            </div>
+            <div class="bg-cream rounded-2xl p-5 border border-beige">
+              <p class="font-display text-purple text-lg mb-1">4. Support</p>
+              <p class="text-warm-gray text-sm leading-relaxed">Keep building confidence through adolescence, changes, and every new stage of life.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -196,7 +254,7 @@ import Layout from '../layouts/Layout.astro';
           What You'll Practice Together
         </h2>
         <p class="text-warm-gray mt-4 text-lg leading-relaxed">
-          This is not a lecture. You and your dog work through each skill with Pam coaching you in real time.
+          This is a coaching workshop, not a lecture. Every team gets individual coaching through every exercise. Here's how the 90 minutes runs.
         </p>
       </div>
 
@@ -211,9 +269,9 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="md:col-span-11 bg-white rounded-2xl p-6 md:p-7 border border-beige hover:border-purple-soft/60 transition-colors group">
-              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">Arrival and Calm Start</h3>
+              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">Calm Before the Walk</h3>
               <p class="text-warm-gray leading-relaxed">
-                Controlled arrivals with spacing between dogs. You'll learn to read body language before the walk even begins and set your dog up to start calm instead of already over threshold.
+                Before anyone takes a step, you'll learn to read your dog's emotional state (and check your own), set up your leash and rewards properly, and use sniffing resets and treat scatters to find your dog's personal reset button. Preparation creates success.
               </p>
             </div>
           </div>
@@ -225,23 +283,9 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="md:col-span-11 bg-white rounded-2xl p-6 md:p-7 border border-beige hover:border-purple-soft/60 transition-colors group">
-              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">Leash Handling Skills</h3>
+              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">Focus Before Movement</h3>
               <p class="text-warm-gray leading-relaxed">
-                Loose leash positioning, avoiding tension, calm handling. Most owners tighten the leash without realizing it. You'll feel the difference in your hands and see it in your dog.
-              </p>
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-12 gap-4 md:gap-6 items-start">
-            <div class="md:col-span-1 flex items-start">
-              <div class="relative z-10 w-10 h-10 md:w-11 md:h-11 bg-orange rounded-xl flex items-center justify-center shadow-md shadow-orange/15">
-                <span class="font-display text-white text-base">3</span>
-              </div>
-            </div>
-            <div class="md:col-span-11 bg-white rounded-2xl p-6 md:p-7 border border-beige hover:border-orange-soft/60 transition-colors group">
-              <h3 class="font-display text-orange text-xl mb-2 group-hover:text-orange-bright transition-colors">Creating Space and Neutral Dog Practice</h3>
-              <p class="text-warm-gray leading-relaxed">
-                When to move away, how to create distance, and using the environment. Then parallel walking with other dogs, passing at distance, and controlled exposure. This is the part you can't practice alone.
+                The Name Game, check-ins, eye contact, and engagement work. The goal: your dog starts voluntarily checking in with you before the walk even begins. You'll practice your reinforcement timing until it clicks.
               </p>
             </div>
           </div>
@@ -249,13 +293,27 @@ import Layout from '../layouts/Layout.astro';
           <div class="grid md:grid-cols-12 gap-4 md:gap-6 items-start">
             <div class="md:col-span-1 flex items-start">
               <div class="relative z-10 w-10 h-10 md:w-11 md:h-11 bg-purple rounded-xl flex items-center justify-center shadow-md shadow-purple/15">
-                <span class="font-display text-white text-base">4</span>
+                <span class="font-display text-white text-base">3</span>
               </div>
             </div>
             <div class="md:col-span-11 bg-white rounded-2xl p-6 md:p-7 border border-beige hover:border-purple-soft/60 transition-colors group">
-              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">Focus, Engagement, and Real-World Walking</h3>
+              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">Calm Walking Skills</h3>
               <p class="text-warm-gray leading-relaxed">
-                Name recognition, check-ins, and rewarding calm behavior. Then walking with real distractions, movement strategies, and building confidence. You practice it all while Pam coaches your timing and positioning.
+                Starting calmly, pacing, loose leash handling, stopping, changing direction, emergency U-turns, and walking away from pressure. The moves you'll actually use, drilled until they're in your hands and not just your head.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-12 gap-4 md:gap-6 items-start">
+            <div class="md:col-span-1 flex items-start">
+              <div class="relative z-10 w-10 h-10 md:w-11 md:h-11 bg-orange rounded-xl flex items-center justify-center shadow-md shadow-orange/15">
+                <span class="font-display text-white text-base">4</span>
+              </div>
+            </div>
+            <div class="md:col-span-11 bg-white rounded-2xl p-6 md:p-7 border border-beige hover:border-orange-soft/60 transition-colors group">
+              <h3 class="font-display text-orange text-xl mb-2 group-hover:text-orange-bright transition-colors">Recovery Practice</h3>
+              <p class="text-warm-gray leading-relaxed">
+                The heart of the workshop. Your dog notices a trigger, you stay calm, create space, re-engage, and your dog recovers. You'll run that sequence in a controlled setting with coaching in real time. We celebrate recovery, not perfection.
               </p>
             </div>
           </div>
@@ -267,9 +325,9 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="md:col-span-11 bg-white rounded-2xl p-6 md:p-7 border border-beige hover:border-purple-soft/60 transition-colors group">
-              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">Q&A and Individual Coaching</h3>
+              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">Your Individual Success Plan</h3>
               <p class="text-warm-gray leading-relaxed">
-                Personalized guidance for your specific situation. Pam troubleshoots what she's observed during the session and gives you a clear plan for what to work on at home.
+                Every team leaves with one strength to keep building, one priority to focus on, one homework assignment, and one specific recommendation for your very next walk. Not generic advice. Yours.
               </p>
             </div>
           </div>
@@ -278,19 +336,76 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- SOCIAL PROOF -->
+  <!-- WHAT YOU LEAVE WITH -->
   <section class="bg-white py-20 md:py-28 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
+        <div class="md:col-span-6">
+          <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Walking Out the Door</p>
+          <h2 class="font-display text-charcoal text-3xl md:text-4xl leading-tight mb-6">
+            What You'll Take Home
+          </h2>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-purple mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <p class="text-warm-gray leading-relaxed">The Down 4 Paws Walk Checklist</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-purple mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <p class="text-warm-gray leading-relaxed">Your Calm Walk Routine</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-purple mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <p class="text-warm-gray leading-relaxed">Dog Body Language Guide</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-purple mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <p class="text-warm-gray leading-relaxed">Recovery Tracker to log progress between walks</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-purple mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <p class="text-warm-gray leading-relaxed">A personalized homework plan for your dog</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-purple mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              <p class="text-warm-gray leading-relaxed">Pam's individual coaching notes from your session</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-6">
+          <div class="bg-cream rounded-3xl p-7 md:p-8 border border-beige">
+            <p class="font-display text-purple text-xl mb-6">The shift you'll feel</p>
+            <div class="space-y-5">
+              <div>
+                <p class="text-warm-gray text-sm uppercase tracking-wide font-semibold mb-1">Walking in</p>
+                <p class="text-charcoal/80 leading-relaxed">"I tense up before my dog does. I never know when to turn, when to treat, or what to do once the barking starts."</p>
+              </div>
+              <div class="h-px bg-beige"></div>
+              <div>
+                <p class="text-orange text-sm uppercase tracking-wide font-semibold mb-1">Walking out</p>
+                <p class="text-charcoal leading-relaxed font-medium">"I can read my dog before they react. I know my reset moves. And when a hard moment happens, I know how to help us both recover and keep going."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="bg-cream py-20 md:py-28 overflow-hidden">
     <div class="max-w-5xl mx-auto px-5 md:px-8">
       <div class="max-w-xl mb-14">
         <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Real Dogs, Real Walks</p>
         <h2 class="font-display text-charcoal text-3xl md:text-4xl leading-tight">
-          What Hands-On Training Looks Like
+          What Hands-On Coaching Changes
         </h2>
       </div>
 
       <div class="grid md:grid-cols-3 gap-5 md:gap-6">
         <!-- Graham -->
-        <div class="h-full bg-cream rounded-3xl p-7 relative group">
+        <div class="h-full bg-white rounded-3xl p-7 relative group border border-beige">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 bg-purple rounded-xl flex items-center justify-center">
               <span class="font-display text-white text-sm">G</span>
@@ -304,7 +419,7 @@ import Layout from '../layouts/Layout.astro';
             Couldn't walk past another dog without lunging. Through parallel walking practice at decreasing distances, he walked just 5 feet from a barking dog without pulling.
           </p>
           <p class="font-display text-purple text-xs">
-            Proximity training changed everything.
+            Proximity practice changed everything.
           </p>
         </div>
 
@@ -350,29 +465,29 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- ABOUT PAM -->
-  <section class="relative bg-cream py-20 md:py-28 overflow-hidden">
+  <section class="relative bg-white py-20 md:py-28 overflow-hidden">
     <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-purple-mist/30 hidden lg:block"></div>
 
     <div class="relative max-w-5xl mx-auto px-5 md:px-8">
       <div class="grid md:grid-cols-12 gap-10 items-center">
         <div class="md:col-span-7">
-          <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Your Trainer</p>
+          <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Your Coach</p>
           <h2 class="font-display text-charcoal text-3xl md:text-4xl leading-tight mb-6">
             Meet Pam Brown
           </h2>
 
           <div class="space-y-4 text-warm-gray leading-relaxed text-lg">
             <p>
-              I'm a CPDT-KA certified dog trainer and owner of Down 4 Paws Dog Training. I work with families every day who deal with the exact problems you're facing on walks.
+              I'm a CPDT-KA certified dog trainer and owner of Down 4 Paws Dog Training in the Boston suburbs. This workshop is how I train every day: outside, in real conditions, coaching families through real moments as they happen.
             </p>
             <p>
-              I don't train for perfect. I train for real life. That means working where the problems actually happen: on real walks, in real neighborhoods, with real distractions. Not in a classroom.
+              I keep this group small on purpose. Ten teams means I can watch your leash handling, your timing, and your dog's body language, and coach you individually through all of it.
             </p>
           </div>
 
           <div class="mt-8 pl-5 border-l-4 border-orange">
             <p class="text-charcoal font-medium text-lg leading-relaxed italic">
-              "This workshop is how I train every day. You bring your dog. We go outside. I coach you through it while it's happening. That's when the real learning clicks."
+              "You don't need a perfect dog. You need a better understanding of the one you already have, and the reps to put that understanding to work. Every moment of recovery builds trust. Small wins become lasting habits."
             </p>
           </div>
         </div>
@@ -380,7 +495,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="md:col-span-5 flex justify-center">
           <div class="relative">
             <div class="absolute inset-0 bg-purple/10 rounded-3xl rotate-3 scale-105"></div>
-            <div class="relative bg-white rounded-3xl p-8 flex flex-col items-center text-center shadow-sm">
+            <div class="relative bg-white rounded-3xl p-8 flex flex-col items-center text-center shadow-sm border border-beige">
               <div class="w-28 h-28 rounded-2xl overflow-hidden mb-5 shadow-md ring-4 ring-cream">
                 <img src="/images/pam-profile.jpg" alt="Pam Brown, CPDT-KA certified dog trainer" class="w-full h-full object-cover" />
               </div>
@@ -401,6 +516,48 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="bg-cream py-20 md:py-28 overflow-hidden">
+    <div class="max-w-3xl mx-auto px-5 md:px-8">
+      <div class="max-w-xl mb-12">
+        <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Good Questions</p>
+        <h2 class="font-display text-charcoal text-3xl md:text-4xl leading-tight">
+          Before You Register
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="bg-white rounded-2xl p-6 md:p-7 border border-beige">
+          <h3 class="font-display text-purple text-lg mb-2">My dog is really reactive. Is this safe for us?</h3>
+          <p class="text-warm-gray leading-relaxed">
+            That's exactly why the group is capped at 10 teams with generous spacing between dogs. Every exercise is set up so your dog can succeed at their own distance. If you're not sure your dog is a fit, email <a href="mailto:pamela@down4paws.com" class="text-purple underline hover:text-purple-deep">pamela@down4paws.com</a> and tell me about them before registering.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 md:p-7 border border-beige">
+          <h3 class="font-display text-purple text-lg mb-2">Do I need to attend the free online workshop first?</h3>
+          <p class="text-warm-gray leading-relaxed">
+            It helps a lot, and it's free. If you missed it, register for this workshop and I'll send you the replay so you arrive with the "why" already covered. We spend our 90 minutes together on the "how."
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 md:p-7 border border-beige">
+          <h3 class="font-display text-purple text-lg mb-2">What should I bring?</h3>
+          <p class="text-warm-gray leading-relaxed">
+            Your dog, a flat collar or front-clip harness, a six-foot leash (no retractables), high-value treats, water, poop bags, and comfortable walking shoes. A full checklist comes with your confirmation email.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 md:p-7 border border-beige">
+          <h3 class="font-display text-purple text-lg mb-2">Can my partner or kid come too?</h3>
+          <p class="text-warm-gray leading-relaxed">
+            Yes. Each registration covers one dog and up to two people from the same household. If more than one person walks the dog at home, bring them both. Everyone should learn the same moves.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- REGISTRATION -->
   <section id="register" class="relative bg-charcoal py-20 md:py-28 overflow-hidden scroll-mt-0">
     <div class="absolute inset-0 opacity-[0.02]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;40&quot; height=&quot;40&quot; viewBox=&quot;0 0 40 40&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cpath d=&quot;M0 0h40v40H0V0zm1 1v38h38V1H1z&quot; fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot; fill-rule=&quot;evenodd&quot;/%3E%3C/svg%3E');"></div>
@@ -412,17 +569,17 @@ import Layout from '../layouts/Layout.astro';
           Register for the Workshop
         </h2>
         <p class="text-white/70 text-lg max-w-md mx-auto mb-2">
-          Wednesday, May 6 at 6:30 PM. Norwood area. $99 per family.
+          Wednesday, July 22, 6:30 PM. Norwood area. $99 early registration, one dog and up to two people.
         </p>
         <p class="text-white/40 text-sm">
-          Limited to 4-6 families. Spots fill quickly.
+          Limited to 10 working teams. Price goes to $119 after Saturday, July 18.
         </p>
       </div>
 
-      <!-- Acuity Embed -->
+      <!-- TODO: Placeholder embed (free online reactivity workshop, type 95061189). Swap appointmentType when Pam creates the July 22 in-person slot in Acuity. -->
       <div class="bg-white rounded-3xl shadow-2xl shadow-black/20 overflow-hidden">
         <iframe
-          src="https://app.acuityscheduling.com/schedule.php?owner=24021188&appointmentType=92236138"
+          src="https://app.acuityscheduling.com/schedule.php?owner=24021188&appointmentType=95061189"
           width="100%"
           height="800"
           frameborder="0"
@@ -439,16 +596,16 @@ import Layout from '../layouts/Layout.astro';
   <section class="bg-cream py-16 md:py-24">
     <div class="max-w-3xl mx-auto px-5 md:px-8 text-center">
       <h2 class="font-display text-charcoal text-3xl md:text-4xl mb-5 leading-tight">
-        Your dog already knows the skills.<br class="hidden md:block" /> You just need to practice them outside.
+        You already understand your dog.<br class="hidden md:block" /> Now practice like it counts.
       </h2>
       <p class="text-warm-gray text-lg leading-relaxed max-w-lg mx-auto mb-8">
-        4-6 families. 90 minutes. Real distractions. Direct coaching. This is how calm walks start.
+        90 minutes. 10 teams. Individual coaching on every exercise, and a personal plan for your very next walk. This is where calm walks start.
       </p>
       <a
         href="#register"
         class="inline-flex items-center gap-3 font-display bg-purple text-white text-lg px-7 py-3.5 rounded-full hover:bg-purple-deep transition-all duration-200 hover:shadow-xl hover:shadow-purple/20 hover:-translate-y-px group"
       >
-        Reserve Your Spot - $99
+        Reserve My Spot for $99
         <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
       </a>
     </div>
