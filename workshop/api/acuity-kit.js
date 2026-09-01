@@ -9,8 +9,9 @@
 //   KIT_API_KEY          Kit v4 API key (Kit -> Settings -> Developer)
 //   ACUITY_BEACON_TOKEN  shared token pasted into the Acuity snippet
 //
-// Probe mode: when ACUITY_BEACON_TOKEN is unset, every request is logged with outcome
-// "probe" and nothing is sent to Kit. Used once to confirm the Acuity frame can reach us.
+//   ACUITY_PROBE_MODE    "true" on PREVIEW only: log every request as outcome "probe", never call Kit.
+//                        Used once to confirm the Acuity frame can reach us. Never set on production.
+//                        With the token unset and probe mode off, the function fails closed ("no-token").
 //
 // Monthly: add one line to FORMS for the new workshop (exact Acuity appointment type name,
 // lowercased, whitespace collapsed) -> Kit form id. Then `vercel --prod`.
@@ -64,8 +65,9 @@ export default {
     } catch {
       return done('bad-json', { origin, referer });
     }
+    if (!p || typeof p !== 'object' || Array.isArray(p)) return done('bad-payload', { origin, referer });
 
-    if (!process.env.ACUITY_BEACON_TOKEN) {
+    if (process.env.ACUITY_PROBE_MODE === 'true') {
       return done('probe', {
         origin,
         referer,
@@ -78,6 +80,7 @@ export default {
       });
     }
 
+    if (!process.env.ACUITY_BEACON_TOKEN) return done('no-token', { origin, referer });
     if (!tokenOk(p.token)) return done('bad-token', { origin, referer });
 
     const email = clean(p.email, 254).toLowerCase();
