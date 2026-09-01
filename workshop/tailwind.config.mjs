@@ -5,17 +5,17 @@ export default {
     extend: {
       colors: {
         purple: {
-          DEFAULT: '#632a9f',
+          DEFAULT: '#613393',
           light: '#8b5fbf',
           soft: '#e8dff5',
           mist: '#f3eef9',
-          deep: '#4a1d78',
+          deep: '#4a2570',
         },
         orange: {
-          DEFAULT: '#f36e14',
+          DEFAULT: '#F36E21',
           light: '#ffa574',
           soft: '#ffd4b8',
-          bright: '#ff7a22',
+          bright: '#ff7f35',
         },
         cream: '#fef9f3',
         'warm-white': '#fffcf7',
@@ -26,7 +26,8 @@ export default {
         charcoal: '#2a2522',
       },
       fontFamily: {
-        display: ['"Bubblegum Sans"', 'cursive'],
+        display: ['Raleway', 'sans-serif'],
+        accent: ['"Bubblegum Sans"', 'cursive'],
         body: ['Raleway', 'sans-serif'],
       },
       keyframes: {

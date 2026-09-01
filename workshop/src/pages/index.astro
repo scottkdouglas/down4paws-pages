@@ -1,492 +1,249 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Registration: replace ACUITY_ID_PLACEHOLDER with the Sept 27 appointment type ID before production deploy.
+const ACUITY_APPOINTMENT_TYPE = 'ACUITY_ID_PLACEHOLDER';
+const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&appointmentType=${ACUITY_APPOINTMENT_TYPE}`;
 ---
 
 <Layout
-  title="Free Reactive Dog Workshop: Why Your Dog Reacts and What To Do Instead | Down 4 Paws"
-  description="Join CPDT-KA dog trainer Pam Brown for a free 45-minute live workshop on Wednesday, July 8 at 7 PM ET. Learn why your dog barks and lunges on leash, the 3 mistakes that keep them stuck, and the calm-first method to help them feel safe on walks again."
+  title="Calm Before Commands: Free Online Dog Training Workshop | Down 4 Paws"
+  description="Join CCDT dog trainer Pam Brown for a free 90-minute live online workshop on Sunday, September 27 at 11 AM ET. Learn why your dog seems to forget training when overwhelmed, and what to do before you repeat the cue."
 >
   <!-- HEADER -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-    <div class="max-w-6xl mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
-      <a href="https://down4paws.com" class="relative z-10">
-        <img src="/images/d4p-logo.png" alt="Down 4 Paws Dog Training" class="h-9 md:h-11" />
+    <div class="max-w-5xl mx-auto px-5 md:px-8 py-3.5 flex items-center justify-between">
+      <a href="https://down4paws.com">
+        <img src="/images/d4p-logo.png" alt="Down 4 Paws Dog Training" class="h-9 md:h-10" />
       </a>
       <a
         href="#register"
-        class="relative z-10 font-display text-sm md:text-base bg-orange text-white px-5 py-2 rounded-full hover:bg-orange-bright transition-all duration-200 hover:shadow-lg hover:shadow-orange/20 hover:-translate-y-px"
+        class="font-display text-sm md:text-base bg-orange text-white px-5 py-2 rounded-full hover:bg-orange-bright transition-colors"
       >
         Save My Spot
       </a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="relative bg-cream overflow-hidden pt-20 pb-0 md:pt-0">
-    <div class="absolute top-12 right-[8%] w-64 h-64 bg-purple-soft/40 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-40 left-[5%] w-48 h-48 bg-orange-soft/30 rounded-full blur-2xl"></div>
+  <!-- 1. HERO -->
+  <section class="bg-cream pt-24 md:pt-32 pb-12 md:pb-16">
+    <div class="max-w-5xl mx-auto px-5 md:px-8">
+      <div class="grid md:grid-cols-12 gap-10 md:gap-8 items-center">
+        <div class="md:col-span-7">
+          <p class="inline-flex items-center gap-2 bg-purple-mist text-purple text-xs font-bold tracking-widest uppercase rounded-full px-4 py-1.5 mb-6">
+            <span class="w-2 h-2 bg-orange rounded-full"></span>
+            Free live online workshop
+          </p>
 
-    <div class="relative max-w-6xl mx-auto px-5 md:px-8 w-full">
-      <div class="grid md:grid-cols-12 gap-8 md:gap-6 items-center md:min-h-[60svh] md:py-32 pt-4 pb-10">
-
-        <div class="md:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2.5 bg-purple/8 border border-purple/12 rounded-full px-4 py-1.5">
-            <span class="w-2 h-2 bg-orange rounded-full animate-pulse"></span>
-            <span class="text-purple text-xs font-bold tracking-widest uppercase">Free Live Workshop</span>
-          </div>
-
-          <h1>
-            <span class="block font-display text-charcoal text-[clamp(2.2rem,6vw,4.2rem)] leading-[1.1] mb-2">
-              Barking. Lunging.
-            </span>
-            <span class="block font-display text-charcoal text-[clamp(2.2rem,6vw,4.2rem)] leading-[1.1] mb-2">
-              Pulling Toward Every Dog.
-            </span>
-            <span class="block font-display text-orange text-[clamp(2.2rem,6vw,4.2rem)] leading-[1.1]">
-              Walks Feel Like a Fight?
-            </span>
+          <h1 class="font-display text-charcoal text-[clamp(1.9rem,4.6vw,3.2rem)] leading-[1.08] mb-5">
+            Your dog knows it at home.
+            <span class="text-orange block">Outside, it's like they never heard the word.</span>
           </h1>
 
-          <p class="text-warm-gray text-lg md:text-xl leading-relaxed max-w-lg">
-            A free 45-minute workshop on why your dog reacts to other dogs and people, and what to do instead of bracing for every walk. Real strategies you can use the next time you clip on the leash.
+          <p class="text-warm-gray text-lg md:text-xl leading-relaxed max-w-xl mb-7">
+            <strong class="text-charcoal font-semibold">Calm Before Commands</strong> is a free 90-minute workshop on why dogs seem to forget their training when they get overwhelmed, and what to do instead of repeating the cue louder.
           </p>
+
+          <ul class="space-y-2 text-charcoal mb-8">
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-purple flex-shrink-0"></span>
+              <span><strong class="font-semibold">Sunday, September 27</strong> · 11:00 am to 12:30 pm Eastern</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-purple flex-shrink-0"></span>
+              <span>Live online with Q&amp;A. Watch from your couch, dog optional.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1.5 w-2 h-2 rounded-full bg-purple flex-shrink-0"></span>
+              <span>Free. Everyone who registers gets the replay.</span>
+            </li>
+          </ul>
 
           <a
             href="#register"
-            class="inline-flex items-center gap-3 font-display bg-purple text-white text-lg px-7 py-3.5 rounded-full hover:bg-purple-deep transition-all duration-200 hover:shadow-xl hover:shadow-purple/20 hover:-translate-y-px group"
+            class="inline-flex items-center gap-3 font-display bg-purple text-white text-lg px-8 py-4 rounded-full hover:bg-purple-deep transition-colors"
           >
             Save My Free Spot
-            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </a>
+
+          <p class="text-warm-gray text-sm mt-5">
+            With <span class="text-charcoal font-semibold">Pam Brown, CCDT</span> · Down 4 Paws Dog Training, Norwood MA · 83 five-star Google reviews
+          </p>
         </div>
 
         <div class="md:col-span-5">
-          <div class="relative">
-            <div class="absolute inset-0 bg-purple/5 rounded-3xl translate-x-3 translate-y-3"></div>
-            <div class="relative bg-white rounded-3xl p-7 shadow-sm border border-beige">
-              <p class="font-display text-purple text-xl mb-5">Workshop Details</p>
-              <div class="space-y-4 mb-5">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 bg-purple-mist rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="w-4 h-4 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                  </div>
-                  <div>
-                    <p class="text-charcoal font-semibold text-sm">Wednesday, July 8</p>
-                    <p class="text-warm-gray text-xs">7:00 PM Eastern</p>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 bg-orange-soft rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="w-4 h-4 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                  </div>
-                  <div>
-                    <p class="text-charcoal font-semibold text-sm">Live Online Workshop</p>
-                    <p class="text-warm-gray text-xs">45 minutes with Q&A</p>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 bg-sage/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="w-4 h-4 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  </div>
-                  <div>
-                    <p class="text-charcoal font-semibold text-sm">Completely Free</p>
-                    <p class="text-warm-gray text-xs">No credit card needed</p>
-                  </div>
-                </div>
-              </div>
-              <div class="h-px bg-beige mb-4"></div>
-              <p class="text-warm-gray text-sm leading-relaxed">
-                With <span class="text-charcoal font-semibold">Pam Brown</span>, CPDT-KA certified trainer
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Full-width hero image -->
-    <div class="relative max-w-6xl mx-auto px-5 md:px-8 pb-12">
-      <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-charcoal/10">
-        <img
-          src="/images/hero-split.jpg"
-          alt="The same dog calm and relaxed at home on the left, then alert and braced on a busy path on the right"
-          class="w-full h-auto object-cover"
-          loading="eager"
-        />
-        <div class="absolute inset-0 flex items-end">
-          <div class="w-full p-4 md:p-6">
-            <span class="bg-white/90 backdrop-blur-sm text-charcoal font-display text-sm md:text-base px-4 py-2 rounded-full shadow-sm">
-              Calm at home. A different dog outside.
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROBLEM AGITATION -->
-  <section class="relative bg-charcoal py-20 md:py-28 overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-
-    <div class="relative max-w-5xl mx-auto px-5 md:px-8">
-      <p class="font-display text-orange text-sm tracking-widest uppercase mb-8">Does this sound familiar?</p>
-
-      <div class="space-y-8 md:space-y-10">
-        <div class="grid md:grid-cols-12 gap-4 items-start">
-          <div class="md:col-span-1 pt-1">
-            <div class="w-8 h-8 rounded-full border-2 border-orange/40 flex items-center justify-center">
-              <div class="w-2.5 h-2.5 bg-orange rounded-full"></div>
-            </div>
-          </div>
-          <div class="md:col-span-11">
-            <p class="text-white/90 text-xl md:text-2xl leading-relaxed font-light">
-              Another dog appears down the street and your whole body tenses before your dog even notices. <span class="text-orange font-medium">They feel it through the leash, and now you're both on alert.</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-12 gap-4 items-start">
-          <div class="md:col-span-1 pt-1">
-            <div class="w-8 h-8 rounded-full border-2 border-orange/40 flex items-center justify-center">
-              <div class="w-2.5 h-2.5 bg-orange rounded-full"></div>
-            </div>
-          </div>
-          <div class="md:col-span-11">
-            <p class="text-white/90 text-xl md:text-2xl leading-relaxed font-light">
-              You call their name. You wave the good treats. They act like they've never seen food in their life. <span class="text-orange font-medium">That other dog is the only thing that exists right now.</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-12 gap-4 items-start">
-          <div class="md:col-span-1 pt-1">
-            <div class="w-8 h-8 rounded-full border-2 border-orange/40 flex items-center justify-center">
-              <div class="w-2.5 h-2.5 bg-orange rounded-full"></div>
-            </div>
-          </div>
-          <div class="md:col-span-11">
-            <p class="text-white/90 text-xl md:text-2xl leading-relaxed font-light">
-              Perfect at home. Great at daycare. Put them on leash near a dog they don't know, <span class="text-orange font-medium">and they turn into a completely different animal.</span>
-            </p>
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-12 gap-4 items-start">
-          <div class="md:col-span-1 pt-1">
-            <div class="w-8 h-8 rounded-full border-2 border-orange/40 flex items-center justify-center">
-              <div class="w-2.5 h-2.5 bg-orange rounded-full"></div>
-            </div>
-          </div>
-          <div class="md:col-span-11">
-            <p class="text-white/90 text-xl md:text-2xl leading-relaxed font-light">
-              So you walk at 6am. You cross the street. You duck behind parked cars. <span class="text-orange font-medium">Your world keeps getting smaller just to avoid the meltdown.</span>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-14 md:mt-16 pt-8 border-t border-white/10">
-        <p class="font-display text-white text-2xl md:text-3xl max-w-2xl">
-          Your dog isn't aggressive. They're overwhelmed.<br/>
-          <span class="text-orange">No one ever showed them what to do with that feeling.</span>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- THE TRUTH ABOUT REACTIVITY -->
-  <section class="bg-white py-20 md:py-28 overflow-hidden">
-    <div class="max-w-5xl mx-auto px-5 md:px-8">
-      <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-        <div class="md:col-span-6">
-          <div class="relative">
-            <div class="absolute -inset-3 bg-purple-soft/30 rounded-3xl rotate-2"></div>
+          <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-charcoal/10">
             <img
-              src="/images/recall-distracted.jpg"
-              alt="A dog locked onto something in the distance, over threshold and unable to focus on their owner"
-              class="relative rounded-3xl shadow-lg shadow-charcoal/10 w-full h-auto"
-              loading="lazy"
+              src="/images/hero-split.jpg"
+              alt="The same dog calm and relaxed at home on the left, then alert and braced on a busy path on the right"
+              class="w-full h-auto object-cover"
+              loading="eager"
             />
-          </div>
-        </div>
-        <div class="md:col-span-6">
-          <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Here's the deal</p>
-          <h2 class="font-display text-charcoal text-3xl md:text-4xl leading-tight mb-6">
-            Reactivity isn't disobedience. It's emotion.
-          </h2>
-          <div class="space-y-4 text-warm-gray leading-relaxed text-lg">
-            <p>
-              Most owners think a reactive dog is being aggressive, dominant, or stubborn. None of that is what's actually happening.
-            </p>
-            <p>
-              Your dog spots a trigger, their nervous system floods, and the thinking part of the brain checks out. The barking and lunging are how a flooded dog copes. It isn't a choice. It's the overflow.
-            </p>
-            <p class="text-charcoal font-medium">
-              Essentially, you can't train a brain that's already over threshold. The work starts with distance and feeling safe, not with louder corrections.
-            </p>
+            <div class="absolute inset-x-0 bottom-0 p-4">
+              <span class="bg-white/90 backdrop-blur-sm text-charcoal font-display text-sm px-4 py-2 rounded-full shadow-sm">
+                Calm at home. A different dog outside.
+              </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHAT YOU'LL LEARN -->
-  <section class="bg-cream py-20 md:py-28 overflow-hidden">
+  <!-- 2. SOUND FAMILIAR + BEHAVIOR TRANSLATION -->
+  <section class="bg-charcoal py-16 md:py-24">
     <div class="max-w-5xl mx-auto px-5 md:px-8">
-      <div class="max-w-xl mb-14">
-        <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">In 45 Minutes You'll Learn</p>
-        <h2 class="font-display text-charcoal text-3xl md:text-4xl leading-tight">
-          What You'll Walk Away With
-        </h2>
-        <p class="text-warm-gray mt-4 text-lg leading-relaxed">
-          Not theory. Not "just socialize them more." Actual things to do differently on your very next walk.
-        </p>
-      </div>
-
-      <div class="relative">
-        <div class="absolute left-[18px] md:left-[22px] top-0 bottom-0 w-px bg-gradient-to-b from-purple/20 via-purple/10 to-transparent hidden md:block"></div>
-
-        <div class="space-y-6 md:space-y-8">
-          <div class="grid md:grid-cols-12 gap-4 md:gap-6 items-start">
-            <div class="md:col-span-1 flex items-start">
-              <div class="relative z-10 w-10 h-10 md:w-11 md:h-11 bg-purple rounded-xl flex items-center justify-center shadow-md shadow-purple/15">
-                <span class="font-display text-white text-base">1</span>
-              </div>
-            </div>
-            <div class="md:col-span-11 bg-white rounded-2xl p-6 md:p-7 border border-beige hover:border-purple-soft/60 transition-colors group">
-              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">Why Your Dog Reacts in the First Place</h3>
-              <p class="text-warm-gray leading-relaxed">
-                Fear, frustration, overwhelm, over-arousal. The barking and lunging are symptoms, not the problem. You'll learn to read what your dog is feeling so the behavior finally makes sense, and you can stop blaming your dog (or yourself).
-              </p>
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-12 gap-4 md:gap-6 items-start">
-            <div class="md:col-span-1 flex items-start">
-              <div class="relative z-10 w-10 h-10 md:w-11 md:h-11 bg-purple rounded-xl flex items-center justify-center shadow-md shadow-purple/15">
-                <span class="font-display text-white text-base">2</span>
-              </div>
-            </div>
-            <div class="md:col-span-11 bg-white rounded-2xl p-6 md:p-7 border border-beige hover:border-purple-soft/60 transition-colors group">
-              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">The 3 Biggest Mistakes Almost Everyone Makes</h3>
-              <p class="text-warm-gray leading-relaxed">
-                Getting too close, thinking more exposure helps. Waiting until the barking starts to do anything. Flooding at dog parks, pet stores, and busy trails. These feel right, and they quietly keep your dog stuck.
-              </p>
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-12 gap-4 md:gap-6 items-start">
-            <div class="md:col-span-1 flex items-start">
-              <div class="relative z-10 w-10 h-10 md:w-11 md:h-11 bg-orange rounded-xl flex items-center justify-center shadow-md shadow-orange/15">
-                <span class="font-display text-white text-base">3</span>
-              </div>
-            </div>
-            <div class="md:col-span-11 bg-white rounded-2xl p-6 md:p-7 border border-beige hover:border-orange-soft/60 transition-colors group">
-              <h3 class="font-display text-orange text-xl mb-2 group-hover:text-orange-bright transition-colors">The Down 4 Paws Reactivity Method</h3>
-              <p class="text-warm-gray leading-relaxed">
-                Create distance. Reward your dog for noticing the trigger instead of reacting to it. Leave before the meltdown. Build recovery, not perfection. The exact 5-step framework I walk families through in their own neighborhoods.
-              </p>
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-12 gap-4 md:gap-6 items-start">
-            <div class="md:col-span-1 flex items-start">
-              <div class="relative z-10 w-10 h-10 md:w-11 md:h-11 bg-purple rounded-xl flex items-center justify-center shadow-md shadow-purple/15">
-                <span class="font-display text-white text-base">4</span>
-              </div>
-            </div>
-            <div class="md:col-span-11 bg-white rounded-2xl p-6 md:p-7 border border-beige hover:border-purple-soft/60 transition-colors group">
-              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">What Success Actually Looks Like</h3>
-              <p class="text-warm-gray leading-relaxed">
-                Not a dog who never reacts. A dog who recovers faster, reacts less, checks in with you more, and makes better choices. You'll leave with realistic expectations so you stop feeling like you're failing every time it slips.
-              </p>
-            </div>
-          </div>
-
-          <div class="grid md:grid-cols-12 gap-4 md:gap-6 items-start">
-            <div class="md:col-span-1 flex items-start">
-              <div class="relative z-10 w-10 h-10 md:w-11 md:h-11 bg-purple rounded-xl flex items-center justify-center shadow-md shadow-purple/15">
-                <span class="font-display text-white text-base">5</span>
-              </div>
-            </div>
-            <div class="md:col-span-11 bg-white rounded-2xl p-6 md:p-7 border border-beige hover:border-purple-soft/60 transition-colors group">
-              <h3 class="font-display text-purple text-xl mb-2 group-hover:text-purple-deep transition-colors">Your Reactive Dog Roadmap</h3>
-              <p class="text-warm-gray leading-relaxed">
-                Understand the emotion. Create distance. Reward engagement. Build recovery. Add difficulty slowly. The exact order I use to take dogs from reactive to reliable in the real world, so you know what comes next.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACTION SHOT INTERSTITIAL -->
-  <section class="relative bg-cream py-12 md:py-16 overflow-hidden">
-    <div class="max-w-6xl mx-auto px-5 md:px-8">
-      <div class="relative rounded-3xl overflow-hidden shadow-xl shadow-charcoal/10">
-        <img
-          src="/images/hero-in-person.jpg"
-          alt="A woman walking her dog calmly on a loose leash down a quiet, tree-lined street"
-          class="w-full h-[340px] md:h-[560px] object-cover object-top"
-          loading="lazy"
-        />
-        <div class="absolute inset-0 bg-gradient-to-r from-charcoal/70 via-charcoal/30 to-transparent flex items-center">
-          <div class="max-w-md px-6 md:px-12">
-            <p class="font-display text-white text-2xl md:text-4xl leading-tight">
-              When the walk feels safe again, your whole world opens back up.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOCIAL PROOF -->
-  <section class="bg-white py-20 md:py-28 overflow-hidden">
-    <div class="max-w-5xl mx-auto px-5 md:px-8">
-      <div class="max-w-xl mb-14">
-        <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Real Dogs, Real Progress</p>
-        <h2 class="font-display text-charcoal text-3xl md:text-4xl leading-tight">
-          Reactive Dogs Who Learned to Stay Calm
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-5 md:gap-6">
-        <!-- Graham -->
-        <div class="h-full bg-cream rounded-3xl p-7 relative group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 bg-purple rounded-xl flex items-center justify-center">
-              <span class="font-display text-white text-sm">G</span>
-            </div>
-            <div>
-              <p class="font-semibold text-charcoal">Graham</p>
-              <p class="text-xs text-warm-gray">Mini Goldendoodle, 11 mo</p>
-            </div>
-          </div>
-          <p class="text-charcoal/80 text-sm leading-relaxed mb-4">
-            Couldn't walk past another dog without losing his mind. Through calm parallel walking, he went from reactive chaos to walking 5 feet from a barking dog without pulling. No warm-up needed.
-          </p>
-          <p class="font-display text-purple text-xs">
-            From reactive to reliable in one program.
-          </p>
+      <div class="grid md:grid-cols-12 gap-10 md:gap-14">
+        <div class="md:col-span-5">
+          <p class="font-display text-orange text-sm tracking-widest uppercase mb-6">Sound familiar?</p>
+          <ul class="space-y-6 text-white/90 text-lg md:text-xl leading-relaxed font-light">
+            <li>"He does a perfect sit in the kitchen. Another dog shows up and he acts like he's never heard the word."</li>
+            <li>"She was doing so well. Then she hit adolescence and it feels like it all fell apart."</li>
+            <li>"I said leave it four times. Louder each time. He stared right through me."</li>
+          </ul>
         </div>
 
-        <!-- Moose -->
-        <div class="h-full bg-charcoal rounded-3xl p-7 relative group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 bg-orange rounded-xl flex items-center justify-center">
-              <span class="font-display text-white text-sm">M</span>
-            </div>
-            <div>
-              <p class="font-semibold text-white">Moose</p>
-              <p class="text-xs text-white/50">Standard Poodle</p>
-            </div>
-          </div>
-          <p class="text-white/80 text-sm leading-relaxed mb-4">
-            Fine at daycare, snapping at strange dogs on leash. With a frozen cheese stick and a looser leash, he started taking treats while another dog walked right alongside him. Thinking instead of spiraling.
-          </p>
-          <p class="font-display text-orange text-xs">
-            From snapping to staying with his handler.
-          </p>
-        </div>
-
-        <!-- Springroll -->
-        <div class="h-full bg-purple-mist rounded-3xl p-7 relative group">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 bg-sage rounded-xl flex items-center justify-center">
-              <span class="font-display text-white text-sm">S</span>
-            </div>
-            <div>
-              <p class="font-semibold text-charcoal">Springroll</p>
-              <p class="text-xs text-warm-gray">Mixed Breed, young adult</p>
-            </div>
-          </div>
-          <p class="text-charcoal/80 text-sm leading-relaxed mb-4">
-            Intense staring and growling at every dog he passed. Using distance and a wide arc away from triggers, he started looking back at his owners instead of fixating. Less pulling, calmer walks.
-          </p>
-          <p class="font-display text-purple text-xs">
-            Learned that checking in beats reacting.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT PAM -->
-  <section class="relative bg-cream py-20 md:py-28 overflow-hidden">
-    <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-purple-mist/30 hidden lg:block"></div>
-
-    <div class="relative max-w-5xl mx-auto px-5 md:px-8">
-      <div class="grid md:grid-cols-12 gap-10 items-center">
         <div class="md:col-span-7">
-          <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Your Trainer</p>
-          <h2 class="font-display text-charcoal text-3xl md:text-4xl leading-tight mb-6">
-            Meet Pam Brown
-          </h2>
+          <p class="font-display text-orange text-sm tracking-widest uppercase mb-6">Here's the deal</p>
+          <p class="font-display text-white text-2xl md:text-3xl leading-tight mb-8">
+            Your dog probably isn't ignoring you.
+          </p>
 
-          <div class="space-y-4 text-warm-gray leading-relaxed text-lg">
-            <p>
-              I'm a CPDT-KA certified dog trainer and owner of Down 4 Paws Dog Training in the Boston suburbs. Reactivity is one of the most common reasons families call me, and almost every one of them starts the same way. They're sure their dog is aggressive or broken.
-            </p>
-            <p>
-              Almost always, the dog is neither. They're overwhelmed, over threshold, and no one ever showed them what to do instead. I train calm first, in real neighborhoods, with real distractions, with real families.
-            </p>
-          </div>
-
-          <div class="mt-8 pl-5 border-l-4 border-orange">
-            <p class="text-charcoal font-medium text-lg leading-relaxed italic">
-              "Your dog isn't giving you a hard time. They're having a hard time. This workshop gives you the same starting point I use with every reactive dog. Understand what they're feeling, stop the habits that make it worse, and build a walk that feels safe again."
-            </p>
-          </div>
-        </div>
-
-        <div class="md:col-span-5 flex justify-center">
-          <div class="relative">
-            <div class="absolute inset-0 bg-purple/10 rounded-3xl rotate-3 scale-105"></div>
-            <div class="relative bg-white rounded-3xl p-8 flex flex-col items-center text-center shadow-sm">
-              <div class="w-28 h-28 rounded-2xl overflow-hidden mb-5 shadow-md ring-4 ring-cream">
-                <img src="/images/pam-profile.jpg" alt="Pam Brown, CPDT-KA certified dog trainer" class="w-full h-full object-cover" />
-              </div>
-              <p class="font-display text-purple text-xl mb-1">Pam Brown</p>
-              <p class="text-warm-gray text-sm mb-4">CPDT-KA Certified Trainer</p>
-              <div class="flex gap-1 mb-2">
-                <svg class="w-4 h-4 text-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                <svg class="w-4 h-4 text-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                <svg class="w-4 h-4 text-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                <svg class="w-4 h-4 text-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                <svg class="w-4 h-4 text-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              </div>
-              <p class="text-warm-gray text-xs">Down 4 Paws Dog Training</p>
+          <dl class="space-y-5 border-l-2 border-orange/60 pl-5">
+            <div>
+              <dt class="text-orange text-xs font-bold tracking-widest uppercase mb-1">What you see</dt>
+              <dd class="text-white/85 leading-relaxed">A dog who "knows" the cue and won't do it.</dd>
             </div>
-          </div>
+            <div>
+              <dt class="text-orange text-xs font-bold tracking-widest uppercase mb-1">What your dog may be feeling</dt>
+              <dd class="text-white/85 leading-relaxed">Too much at once. New smells, movement, another dog. The brain is full.</dd>
+            </div>
+            <div>
+              <dt class="text-orange text-xs font-bold tracking-widest uppercase mb-1">Behavior Translation</dt>
+              <dd class="text-white/85 leading-relaxed">Knowing a skill and being able to use it in the moment are two different things. An overwhelmed dog loses access to what they know.</dd>
+            </div>
+            <div>
+              <dt class="text-orange text-xs font-bold tracking-widest uppercase mb-1">Why it matters</dt>
+              <dd class="text-white/85 leading-relaxed">Repeating the cue louder adds pressure to a dog who is already over capacity. The cue gets weaker, not stronger.</dd>
+            </div>
+            <div>
+              <dt class="text-orange text-xs font-bold tracking-widest uppercase mb-1">Next step</dt>
+              <dd class="text-white/85 leading-relaxed">Notice earlier. Lower the difficulty. Help them recover. Then ask.</dd>
+            </div>
+          </dl>
+
+          <p class="mt-10 pt-6 border-t border-white/10 font-display text-white text-xl md:text-2xl">
+            Your dog isn't giving you a hard time.<br />
+            <span class="text-orange">They're having a hard time.</span>
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- REGISTRATION -->
-  <section id="register" class="relative bg-charcoal py-20 md:py-28 overflow-hidden scroll-mt-0">
-    <div class="absolute inset-0 opacity-[0.02]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;40&quot; height=&quot;40&quot; viewBox=&quot;0 0 40 40&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cpath d=&quot;M0 0h40v40H0V0zm1 1v38h38V1H1z&quot; fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot; fill-rule=&quot;evenodd&quot;/%3E%3C/svg%3E');"></div>
-
-    <div class="relative max-w-2xl mx-auto px-5 md:px-8">
-      <div class="text-center mb-10">
-        <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Free Registration</p>
-        <h2 class="font-display text-white text-3xl md:text-4xl mb-4">
-          Save Your Spot
+  <!-- 3. WHAT YOU'LL WALK AWAY WITH -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-5 md:px-8">
+      <div class="max-w-2xl mb-10 md:mb-12">
+        <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">In 90 minutes</p>
+        <h2 class="font-display text-charcoal text-3xl md:text-4xl leading-tight mb-4">
+          What you'll walk away with
         </h2>
-        <p class="text-white/70 text-lg max-w-md mx-auto mb-2">
-          Wednesday, July 8 at 7:00 PM ET. Free. Live. 45 minutes.
-        </p>
-        <p class="text-white/40 text-sm">
-          Can't make it live? Register anyway and I'll send you the replay.
+        <p class="text-warm-gray text-lg leading-relaxed">
+          One idea, taught properly. Not forty tips you'll forget by Tuesday.
         </p>
       </div>
 
-      <!-- Acuity Embed: Free Online Reactive Dog Workshop, July 8 -->
+      <div class="grid md:grid-cols-2 gap-5">
+        <div class="bg-cream rounded-2xl p-6 md:p-7 border border-beige">
+          <p class="font-display text-purple text-lg mb-2">The early signs of overstimulation</p>
+          <p class="text-warm-gray leading-relaxed">Staring, scanning, pulling harder, grabbing treats roughly, slower responses. So you catch it before the bark, the lunge, or the shutdown.</p>
+        </div>
+        <div class="bg-cream rounded-2xl p-6 md:p-7 border border-beige">
+          <p class="font-display text-purple text-lg mb-2">Notice → Process → Reconnect → Respond</p>
+          <p class="text-warm-gray leading-relaxed">The four-step framework for what to do before you give another command. When to pause, when to add distance, when movement helps.</p>
+        </div>
+        <div class="bg-cream rounded-2xl p-6 md:p-7 border border-beige">
+          <p class="font-display text-purple text-lg mb-2">Why "she regressed" is normal</p>
+          <p class="text-warm-gray leading-relaxed">What adolescence does to a dog who was doing great, and what actually helps. Bad days don't erase progress.</p>
+        </div>
+        <div class="bg-cream rounded-2xl p-6 md:p-7 border border-beige">
+          <p class="font-display text-purple text-lg mb-2">Five things to try this week</p>
+          <p class="text-warm-gray leading-relaxed">Real walks, real visitors, real life. No perfect conditions required.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center">
+        <a
+          href="#register"
+          class="inline-flex items-center gap-3 font-display bg-purple text-white text-lg px-8 py-4 rounded-full hover:bg-purple-deep transition-colors"
+        >
+          Save My Free Spot
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PROOF + PAM -->
+  <section class="bg-cream py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-5 md:px-8">
+      <p class="font-display text-orange text-sm tracking-widest uppercase mb-8">Real dogs, real life</p>
+
+      <div class="grid md:grid-cols-3 gap-5 mb-14">
+        <div class="bg-white rounded-2xl p-6 border border-beige">
+          <p class="font-semibold text-charcoal mb-1">Archie</p>
+          <p class="text-xs text-warm-gray mb-4">Mixed breed, young adult</p>
+          <p class="text-charcoal/80 text-sm leading-relaxed">
+            Great in training sessions. Neighborhood walks were a different story: pulling, reacting to dogs on porches, overstimulated before the walk even started. The fix wasn't more commands. It was getting his attention earlier, creating space sooner, and keeping him in walks he could actually handle.
+          </p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-beige">
+          <p class="font-semibold text-charcoal mb-1">Maisie</p>
+          <p class="text-xs text-warm-gray mb-4">Golden Retriever, puppy</p>
+          <p class="text-charcoal/80 text-sm leading-relaxed">
+            Good at home. Outside with stimulation, she fell apart. After a day of walk, car ride, errands and meeting a new dog, she couldn't settle at all that night. Once her owner learned to spot the overload and build in rest, the evenings calmed down.
+          </p>
+        </div>
+        <div class="bg-purple rounded-2xl p-6 text-white">
+          <p class="text-white/70 text-xs font-bold tracking-widest uppercase mb-4">Google review</p>
+          <p class="text-white/95 text-sm leading-relaxed mb-4">
+            "Before Pam, whenever he saw another dog on a walk, he would start barking and lunging. After Pam, he clocks another dog but does not get distracted or reactive."
+          </p>
+          <p class="text-white/70 text-xs">Arthur's family</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-12 gap-8 items-center bg-white rounded-3xl p-7 md:p-10 border border-beige">
+        <div class="md:col-span-3 flex justify-center md:justify-start">
+          <img src="/images/pam-profile.jpg" alt="Pam Brown, CCDT, Down 4 Paws Dog Training" class="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover shadow-md" />
+        </div>
+        <div class="md:col-span-9">
+          <p class="font-display text-purple text-xl mb-1">Pam Brown, CCDT</p>
+          <p class="text-warm-gray text-sm mb-4">Founder &amp; Head Trainer, Down 4 Paws Dog Training</p>
+          <p class="text-warm-gray text-lg leading-relaxed">
+            I train force-free, in real neighborhoods, with real families in the Boston suburbs. Almost every family I meet says the same thing first: "He knows this. He's just not listening." This workshop is the other way to look at it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. REGISTER -->
+  <section id="register" class="bg-charcoal py-16 md:py-24 scroll-mt-16">
+    <div class="max-w-2xl mx-auto px-5 md:px-8">
+      <div class="text-center mb-8">
+        <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Free registration</p>
+        <h2 class="font-display text-white text-3xl md:text-4xl mb-3">Save your spot</h2>
+        <p class="text-white/80 text-lg">Sunday, September 27 · 11:00 am to 12:30 pm ET · Live online</p>
+        <p class="text-white/50 text-sm mt-2">Can't make it live? Register anyway. Everyone who registers gets the replay.</p>
+      </div>
+
+      <!-- Acuity Embed: Calm Before Commands, Sept 27, 2026 -->
       <div class="bg-white rounded-3xl shadow-2xl shadow-black/20 overflow-hidden">
         <iframe
-          src="https://app.acuityscheduling.com/schedule.php?owner=24021188&appointmentType=95061189"
+          src={acuityUrl}
           width="100%"
           height="800"
           frameborder="0"
@@ -496,25 +253,37 @@ import Layout from '../layouts/Layout.astro';
         ></iframe>
       </div>
       <script is:inline src="https://embed.acuityscheduling.com/js/embed.js"></script>
-    </div>
-  </section>
 
-  <!-- FINAL NUDGE -->
-  <section class="bg-cream py-16 md:py-24">
-    <div class="max-w-3xl mx-auto px-5 md:px-8 text-center">
-      <h2 class="font-display text-charcoal text-3xl md:text-4xl mb-5 leading-tight">
-        Your dog isn't aggressive.<br class="hidden md:block" /> They're overwhelmed.
-      </h2>
-      <p class="text-warm-gray text-lg leading-relaxed max-w-lg mx-auto mb-8">
-        Reactivity isn't a life sentence, and it isn't your fault. Once you can see what your dog is feeling, you finally know what to do instead. In 45 minutes you'll know exactly where to start.
-      </p>
-      <a
-        href="#register"
-        class="inline-flex items-center gap-3 font-display bg-purple text-white text-lg px-7 py-3.5 rounded-full hover:bg-purple-deep transition-all duration-200 hover:shadow-xl hover:shadow-purple/20 hover:-translate-y-px group"
-      >
-        Register Free
-        <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-      </a>
+      <div class="mt-12 space-y-3">
+        <details class="group bg-white/5 rounded-xl px-5 py-4">
+          <summary class="cursor-pointer text-white font-semibold list-none flex justify-between items-center">
+            Do I need my dog with me?
+            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+          </summary>
+          <p class="text-white/75 mt-3 leading-relaxed">No. This one is for you. Watch, take notes, then practice this week.</p>
+        </details>
+        <details class="group bg-white/5 rounded-xl px-5 py-4">
+          <summary class="cursor-pointer text-white font-semibold list-none flex justify-between items-center">
+            Is it only for reactive dogs?
+            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+          </summary>
+          <p class="text-white/75 mt-3 leading-relaxed">No. It's for any dog who does great at home and struggles outside, in adolescence, around visitors, or in busy places.</p>
+        </details>
+        <details class="group bg-white/5 rounded-xl px-5 py-4">
+          <summary class="cursor-pointer text-white font-semibold list-none flex justify-between items-center">
+            Is this a sales pitch?
+            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+          </summary>
+          <p class="text-white/75 mt-3 leading-relaxed">The workshop stands on its own. At the end I'll tell you how to work with me if you want more support, including a new virtual option. That's it.</p>
+        </details>
+        <details class="group bg-white/5 rounded-xl px-5 py-4">
+          <summary class="cursor-pointer text-white font-semibold list-none flex justify-between items-center">
+            Do I need to be near Boston?
+            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+          </summary>
+          <p class="text-white/75 mt-3 leading-relaxed">No. It's online. Join from anywhere.</p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -525,7 +294,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="flex items-center gap-4 text-sm text-warm-gray">
         <a href="https://down4paws.com" class="hover:text-purple transition-colors">down4paws.com</a>
         <span class="w-1 h-1 bg-warm-gray/30 rounded-full"></span>
-        <a href="mailto:pamela@down4paws.com" class="hover:text-purple transition-colors">pamela@down4paws.com</a>
+        <a href="https://instagram.com/down4paws" class="hover:text-purple transition-colors">@down4paws</a>
       </div>
       <p class="text-xs text-warm-gray/50">&copy; 2026 Down 4 Paws</p>
     </div>
@@ -533,5 +302,6 @@ import Layout from '../layouts/Layout.astro';
 
   <style is:global>
     html { scroll-behavior: smooth; }
+    details summary::-webkit-details-marker { display: none; }
   </style>
 </Layout>
