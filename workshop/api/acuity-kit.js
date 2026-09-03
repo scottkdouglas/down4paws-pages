@@ -20,8 +20,8 @@
 import { timingSafeEqual } from 'node:crypto';
 
 const TARGETS = {
-  'zz test class (ignore)': { tagId: 23056184 },                    // "ZZ Test - Acuity Bridge", remove after rollout
-  'calm before commands (online workshop)': { tagId: 23056186 },    // "Calm Before Commands Online Workshop Signup", Sept 27 2026
+  'zz test class (ignore)': { tagId: 23056184, sequenceId: 2881955 },                 // "ZZ Test - Acuity Bridge", remove after rollout
+  'calm before commands (online workshop)': { tagId: 23056186, sequenceId: 2881955 }, // Sept 27 2026 welcome sequence
 };
 
 const KIT = 'https://api.kit.com/v4';
