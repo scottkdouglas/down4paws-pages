@@ -1,9 +1,10 @@
-// Acuity booking -> Kit form bridge.
+// Acuity booking -> Kit tag (+ optional sequence) bridge.
 //
 // Acuity's "Custom conversion tracking" snippet (automation/acuity-conversion-snippet.html)
-// beacons here from the booking confirmation page. This function adds the registrant to the
-// Kit form mapped to the Acuity appointment type. Existing Kit automations (tag + welcome
-// sequence) fire on "joins form" exactly as they did on the Zapier path.
+// beacons here from the booking confirmation page. This function upserts the registrant in
+// Kit, applies the tag mapped to the Acuity appointment type, and (if a sequenceId is set)
+// adds them to the welcome sequence. A Kit Visual Automation triggered by the tag can do the
+// sequence step instead; leave sequenceId out in that case.
 //
 // Env vars (set with `vercel env add ... production` and `... preview` from workshop/):
 //   KIT_API_KEY          Kit v4 API key (Kit -> Settings -> Developer)
@@ -13,14 +14,14 @@
 //                        Used once to confirm the Acuity frame can reach us. Never set on production.
 //                        With the token unset and probe mode off, the function fails closed ("no-token").
 //
-// Monthly: add one line to FORMS for the new workshop (exact Acuity appointment type name,
-// lowercased, whitespace collapsed) -> Kit form id. Then `vercel --prod`.
+// Monthly: add one line to TARGETS for the new workshop (exact Acuity appointment type name,
+// lowercased, whitespace collapsed) -> { tagId, sequenceId? }. Then `vercel --prod`.
 
 import { timingSafeEqual } from 'node:crypto';
 
-const FORMS = {
-  'zz test class (ignore)': 0, // scratch Kit form for testing; set id, remove after rollout
-  // 'calm before commands': 0, // Sept 27 2026 online workshop; exact type name + form id from Pam
+const TARGETS = {
+  'zz test class (ignore)': { tagId: 23056184 },                    // "ZZ Test - Acuity Bridge", remove after rollout
+  'calm before commands (online workshop)': { tagId: 23056186 },    // "Calm Before Commands Online Workshop Signup", Sept 27 2026
 };
 
 const KIT = 'https://api.kit.com/v4';
@@ -87,8 +88,8 @@ export default {
     if (!EMAIL_RE.test(email)) return done('bad-email', { origin });
 
     const typeName = norm(p.appointmentType);
-    const formId = FORMS[typeName];
-    if (!formId) return done('skip-unmapped', { typeName, kind: norm(p.kind), origin });
+    const target = TARGETS[typeName];
+    if (!target?.tagId) return done('skip-unmapped', { typeName, kind: norm(p.kind), origin });
 
     const fields = {
       date_of_online_class: clean(p.clientDate),
@@ -100,19 +101,24 @@ export default {
       const sub = created.json.subscriber;
       if (!sub?.id) throw new Error(`kit POST /subscribers returned no subscriber: ${JSON.stringify(created.json).slice(0, 300)}`);
       if (created.status === 200) await kit('PUT', `/subscribers/${sub.id}`, { email_address: email, fields });
-      const added = await kit('POST', `/forms/${formId}/subscribers/${sub.id}`, {
-        referrer: 'https://workshop.down4paws.com/?src=acuity',
-      });
-      return done(added.status === 201 ? 'added' : 'already', {
+      const tagged = await kit('POST', `/tags/${target.tagId}/subscribers/${sub.id}`, {});
+      let sequenceStatus = null;
+      if (target.sequenceId) {
+        const seq = await kit('POST', `/sequences/${target.sequenceId}/subscribers/${sub.id}`, {});
+        sequenceStatus = seq.status;
+      }
+      return done(tagged.status === 201 ? 'added' : 'already', {
         email,
-        formId,
+        tagId: target.tagId,
+        sequenceId: target.sequenceId ?? null,
+        sequenceStatus,
         subscriberId: sub.id,
         state: sub.state,
         appointmentId: clean(p.appointmentId, 20),
         origin,
       });
     } catch (err) {
-      console.error(JSON.stringify({ evt: 'acuity-kit', outcome: 'error', email, formId, message: err.message }));
+      console.error(JSON.stringify({ evt: 'acuity-kit', outcome: 'error', email, tagId: target.tagId, message: err.message }));
       return new Response(null, { status: 500 });
     }
   },
