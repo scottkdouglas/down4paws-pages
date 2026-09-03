@@ -91,9 +91,10 @@ export default {
     const target = TARGETS[typeName];
     if (!target?.tagId) return done('skip-unmapped', { typeName, kind: norm(p.kind), origin });
 
+    // Acuity sends "11:00am EDT"; the Zap wrote "7:00pm". Strip the zone so templates match.
     const fields = {
       date_of_online_class: clean(p.clientDate),
-      time_of_online_class: clean(p.clientTime),
+      time_of_online_class: clean(p.clientTime).replace(/\s+[A-Z]{2,5}$/, ''),
     };
 
     try {
