@@ -18,9 +18,9 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
       </a>
       <a
         href="#register"
-        class="font-display text-sm md:text-base bg-orange text-white px-5 py-2 rounded-full hover:bg-orange-bright transition-colors"
+        class="font-display text-sm md:text-base bg-orange text-white px-4 md:px-5 py-2 rounded-full hover:bg-orange-bright transition-colors whitespace-nowrap"
       >
-        Save My Spot
+        Save My Free Spot
       </a>
     </div>
   </header>
@@ -35,29 +35,21 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
             Free live online workshop
           </p>
 
-          <h1 class="font-display text-charcoal text-[clamp(1.9rem,4.6vw,3.2rem)] leading-[1.08] mb-5">
+          <h1 class="font-display text-charcoal text-[clamp(1.9rem,4.6vw,3.2rem)] leading-[1.08] mb-6">
             Your dog knows it at home.
             <span class="text-orange block">Outside, it's like they never heard the word.</span>
           </h1>
 
-          <p class="text-warm-gray text-lg md:text-xl leading-relaxed max-w-xl mb-7">
-            <strong class="text-charcoal font-semibold">Calm Before Commands</strong> is a free 90-minute workshop on why dogs seem to forget their training when they get overwhelmed, and what to do instead of repeating the cue louder.
-          </p>
+          <!-- Workshop details, prominent above the fold -->
+          <div class="bg-white border-l-4 border-orange rounded-r-2xl shadow-sm px-5 py-4 mb-6 max-w-xl">
+            <p class="font-display text-charcoal text-xl md:text-2xl leading-snug">Sunday, September 27</p>
+            <p class="font-display text-charcoal text-xl md:text-2xl leading-snug">11:00 AM to 12:30 PM Eastern</p>
+            <p class="text-purple font-semibold text-lg md:text-xl mt-1">Live online with Pam Brown, CCDT</p>
+          </div>
 
-          <ul class="space-y-2 text-charcoal mb-8">
-            <li class="flex items-start gap-3">
-              <span class="mt-1.5 w-2 h-2 rounded-full bg-purple flex-shrink-0"></span>
-              <span><strong class="font-semibold">Sunday, September 27</strong> · 11:00 am to 12:30 pm Eastern</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-1.5 w-2 h-2 rounded-full bg-purple flex-shrink-0"></span>
-              <span>Live online with Q&amp;A. Watch from your couch, dog optional.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-1.5 w-2 h-2 rounded-full bg-purple flex-shrink-0"></span>
-              <span>Free. Everyone who registers gets the replay.</span>
-            </li>
-          </ul>
+          <p class="text-charcoal text-lg md:text-xl leading-relaxed max-w-xl mb-7">
+            <strong class="font-semibold">Calm Before Commands</strong> is a free 90-minute workshop for families whose dogs seem to forget everything when the world gets busy. Learn what's happening before your dog becomes overwhelmed, and what to do instead of repeating the cue louder.
+          </p>
 
           <a
             href="#register"
@@ -67,8 +59,8 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </a>
 
-          <p class="text-warm-gray text-sm mt-5">
-            With <span class="text-charcoal font-semibold">Pam Brown, CCDT</span> · Down 4 Paws Dog Training, Norwood MA · 83 five-star Google reviews
+          <p class="text-warm-gray text-base mt-5">
+            Free. Can't make it live? Register anyway and get the replay.
           </p>
         </div>
 
@@ -86,6 +78,9 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
               </span>
             </div>
           </div>
+          <p class="text-warm-gray text-base mt-4 text-center md:text-left">
+            Down 4 Paws Dog Training, Norwood MA · 83 five-star Google reviews
+          </p>
         </div>
       </div>
     </div>
@@ -97,7 +92,7 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
       <div class="grid md:grid-cols-12 gap-10 md:gap-14">
         <div class="md:col-span-5">
           <p class="font-display text-orange text-sm tracking-widest uppercase mb-6">Sound familiar?</p>
-          <ul class="space-y-6 text-white/90 text-lg md:text-xl leading-relaxed font-light">
+          <ul class="space-y-6 text-white text-lg md:text-xl leading-relaxed">
             <li>"He does a perfect sit in the kitchen. Another dog shows up and he acts like he's never heard the word."</li>
             <li>"She was doing so well. Then she hit adolescence and it feels like it all fell apart."</li>
             <li>"I said leave it four times. Louder each time. He stared right through me."</li>
@@ -112,30 +107,25 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
 
           <dl class="space-y-5 border-l-2 border-orange/60 pl-5">
             <div>
-              <dt class="text-orange text-xs font-bold tracking-widest uppercase mb-1">What you see</dt>
-              <dd class="text-white/85 leading-relaxed">A dog who "knows" the cue and won't do it.</dd>
+              <dt class="text-orange text-sm font-bold tracking-widest uppercase mb-1">What you see</dt>
+              <dd class="text-white text-base md:text-lg leading-relaxed">A dog who "knows" the cue and won't do it.</dd>
             </div>
             <div>
-              <dt class="text-orange text-xs font-bold tracking-widest uppercase mb-1">What your dog may be feeling</dt>
-              <dd class="text-white/85 leading-relaxed">Too much at once. New smells, movement, another dog. The brain is full.</dd>
+              <dt class="text-orange text-sm font-bold tracking-widest uppercase mb-1">What your dog may be feeling</dt>
+              <dd class="text-white text-base md:text-lg leading-relaxed">Too much at once. The brain is full.</dd>
             </div>
             <div>
-              <dt class="text-orange text-xs font-bold tracking-widest uppercase mb-1">Behavior Translation</dt>
-              <dd class="text-white/85 leading-relaxed">Knowing a skill and being able to use it in the moment are two different things. An overwhelmed dog loses access to what they know.</dd>
-            </div>
-            <div>
-              <dt class="text-orange text-xs font-bold tracking-widest uppercase mb-1">Why it matters</dt>
-              <dd class="text-white/85 leading-relaxed">Repeating the cue louder adds pressure to a dog who is already over capacity. The cue gets weaker, not stronger.</dd>
-            </div>
-            <div>
-              <dt class="text-orange text-xs font-bold tracking-widest uppercase mb-1">Next step</dt>
-              <dd class="text-white/85 leading-relaxed">Notice earlier. Lower the difficulty. Help them recover. Then ask.</dd>
+              <dt class="text-orange text-sm font-bold tracking-widest uppercase mb-1">Behavior Translation</dt>
+              <dd class="text-white text-base md:text-lg leading-relaxed">Knowing a skill and being able to use it in the moment are two different things.</dd>
             </div>
           </dl>
 
-          <p class="mt-10 pt-6 border-t border-white/10 font-display text-white text-xl md:text-2xl">
+          <p class="mt-10 pt-6 border-t border-white/15 font-display text-white text-xl md:text-2xl">
             Your dog isn't giving you a hard time.<br />
             <span class="text-orange">They're having a hard time.</span>
+          </p>
+          <p class="text-white/90 text-base md:text-lg leading-relaxed mt-4">
+            What to do about it, and how to spot it before the cue is lost, is what we cover in the workshop.
           </p>
         </div>
       </div>
@@ -157,20 +147,20 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
 
       <div class="grid md:grid-cols-2 gap-5">
         <div class="bg-cream rounded-2xl p-6 md:p-7 border border-beige">
-          <p class="font-display text-purple text-lg mb-2">The early signs of overstimulation</p>
-          <p class="text-warm-gray leading-relaxed">Staring, scanning, pulling harder, grabbing treats roughly, slower responses. So you catch it before the bark, the lunge, or the shutdown.</p>
+          <p class="font-display text-purple text-lg mb-2">The early signs of overwhelm</p>
+          <p class="text-charcoal text-base leading-relaxed">What your dog does before the bark, the lunge, or the shutdown. So you can catch it in time.</p>
         </div>
         <div class="bg-cream rounded-2xl p-6 md:p-7 border border-beige">
           <p class="font-display text-purple text-lg mb-2">Notice → Process → Reconnect → Respond</p>
-          <p class="text-warm-gray leading-relaxed">The four-step framework for what to do before you give another command. When to pause, when to add distance, when movement helps.</p>
+          <p class="text-charcoal text-base leading-relaxed">A four-step framework for what to do before you give another command.</p>
         </div>
         <div class="bg-cream rounded-2xl p-6 md:p-7 border border-beige">
           <p class="font-display text-purple text-lg mb-2">Why "she regressed" is normal</p>
-          <p class="text-warm-gray leading-relaxed">What adolescence does to a dog who was doing great, and what actually helps. Bad days don't erase progress.</p>
+          <p class="text-charcoal text-base leading-relaxed">What adolescence does to a dog who was doing great. Bad days don't erase progress.</p>
         </div>
         <div class="bg-cream rounded-2xl p-6 md:p-7 border border-beige">
           <p class="font-display text-purple text-lg mb-2">Five things to try this week</p>
-          <p class="text-warm-gray leading-relaxed">Real walks, real visitors, real life. No perfect conditions required.</p>
+          <p class="text-charcoal text-base leading-relaxed">Real walks, real visitors, real life. No perfect conditions required.</p>
         </div>
       </div>
 
@@ -193,25 +183,25 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
 
       <div class="grid md:grid-cols-3 gap-5 mb-14">
         <div class="bg-white rounded-2xl p-6 border border-beige">
-          <p class="font-semibold text-charcoal mb-1">Archie</p>
-          <p class="text-xs text-warm-gray mb-4">Mixed breed, young adult</p>
-          <p class="text-charcoal/80 text-sm leading-relaxed">
-            Great in training sessions. Neighborhood walks were a different story: pulling, reacting to dogs on porches, overstimulated before the walk even started. The fix wasn't more commands. It was getting his attention earlier, creating space sooner, and keeping him in walks he could actually handle.
+          <p class="font-display text-purple text-lg leading-snug mb-3">The fix wasn't a new command. It was catching him sooner.</p>
+          <p class="text-charcoal text-base leading-relaxed mb-4">
+            Archie was great in training and a mess on neighborhood walks: pulling, reacting to dogs on porches. His owner learned to get his attention earlier and make space before he tipped over.
           </p>
+          <p class="text-warm-gray text-sm"><span class="font-semibold text-charcoal">Archie</span> · Mixed breed, young adult</p>
         </div>
         <div class="bg-white rounded-2xl p-6 border border-beige">
-          <p class="font-semibold text-charcoal mb-1">Maisie</p>
-          <p class="text-xs text-warm-gray mb-4">Golden Retriever, puppy</p>
-          <p class="text-charcoal/80 text-sm leading-relaxed">
-            Good at home. Outside with stimulation, she fell apart. After a day of walk, car ride, errands and meeting a new dog, she couldn't settle at all that night. Once her owner learned to spot the overload and build in rest, the evenings calmed down.
+          <p class="font-display text-purple text-lg leading-snug mb-3">From pacing all night to sleeping through.</p>
+          <p class="text-charcoal text-base leading-relaxed mb-4">
+            Maisie was good at home and overwhelmed outside. One packed day of walk, car, errands and a new dog, and she couldn't settle. Once her owner learned to spot the overload and build in rest, the evenings calmed down.
           </p>
+          <p class="text-warm-gray text-sm"><span class="font-semibold text-charcoal">Maisie</span> · Golden Retriever, puppy</p>
         </div>
         <div class="bg-purple rounded-2xl p-6 text-white">
-          <p class="text-white/70 text-xs font-bold tracking-widest uppercase mb-4">Google review</p>
-          <p class="text-white/95 text-sm leading-relaxed mb-4">
+          <p class="text-white/80 text-sm font-bold tracking-widest uppercase mb-4">Google review</p>
+          <p class="text-white text-base leading-relaxed mb-4">
             "Before Pam, whenever he saw another dog on a walk, he would start barking and lunging. After Pam, he clocks another dog but does not get distracted or reactive."
           </p>
-          <p class="text-white/70 text-xs">Arthur's family</p>
+          <p class="text-white/80 text-sm">Arthur's family</p>
         </div>
       </div>
 
@@ -221,9 +211,12 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
         </div>
         <div class="md:col-span-9">
           <p class="font-display text-purple text-xl mb-1">Pam Brown, CCDT</p>
-          <p class="text-warm-gray text-sm mb-4">Founder &amp; Head Trainer, Down 4 Paws Dog Training</p>
-          <p class="text-warm-gray text-lg leading-relaxed">
-            I train force-free, in real neighborhoods, with real families in the Boston suburbs. Almost every family I meet says the same thing first: "He knows this. He's just not listening." This workshop is the other way to look at it.
+          <p class="text-warm-gray text-base mb-4">Founder &amp; Head Trainer, Down 4 Paws Dog Training</p>
+          <p class="text-charcoal text-lg leading-relaxed mb-4">
+            Almost every family I meet says the same thing first: "He knows this. He's just not listening." I teach this workshop because I help families recognize what their dog is communicating before the behavior escalates.
+          </p>
+          <p class="text-charcoal text-lg leading-relaxed">
+            When you can spot the early signs of overwhelm, you can help your dog recover and reconnect instead of asking for something they're not ready to give. That's the shift I want you to leave with.
           </p>
         </div>
       </div>
@@ -235,9 +228,10 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
     <div class="max-w-2xl mx-auto px-5 md:px-8">
       <div class="text-center mb-8">
         <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Free registration</p>
-        <h2 class="font-display text-white text-3xl md:text-4xl mb-3">Save your spot</h2>
-        <p class="text-white/80 text-lg">Sunday, September 27 · 11:00 am to 12:30 pm ET · Live online</p>
-        <p class="text-white/50 text-sm mt-2">Can't make it live? Register anyway. Everyone who registers gets the replay.</p>
+        <h2 class="font-display text-white text-3xl md:text-4xl mb-4">Save your free spot</h2>
+        <p class="text-white text-lg md:text-xl font-semibold">Sunday, September 27</p>
+        <p class="text-white text-lg md:text-xl">11:00 AM to 12:30 PM Eastern · Live online</p>
+        <p class="text-white/80 text-base mt-3">Can't make it live? Register anyway. Everyone who registers gets the replay.</p>
       </div>
 
       <!-- Acuity Embed: Calm Before Commands, Sept 27, 2026 -->
@@ -256,32 +250,32 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
 
       <div class="mt-12 space-y-3">
         <details class="group bg-white/5 rounded-xl px-5 py-4">
-          <summary class="cursor-pointer text-white font-semibold list-none flex justify-between items-center">
+          <summary class="cursor-pointer text-white text-base md:text-lg font-semibold list-none flex justify-between items-center gap-4">
             Do I need my dog with me?
-            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0">+</span>
           </summary>
-          <p class="text-white/75 mt-3 leading-relaxed">No. This one is for you. Watch, take notes, then practice this week.</p>
+          <p class="text-white/90 text-base mt-3 leading-relaxed">No. This one is for you. Watch, take notes, then practice this week.</p>
         </details>
         <details class="group bg-white/5 rounded-xl px-5 py-4">
-          <summary class="cursor-pointer text-white font-semibold list-none flex justify-between items-center">
+          <summary class="cursor-pointer text-white text-base md:text-lg font-semibold list-none flex justify-between items-center gap-4">
             Is it only for reactive dogs?
-            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0">+</span>
           </summary>
-          <p class="text-white/75 mt-3 leading-relaxed">No. It's for any dog who does great at home and struggles outside, in adolescence, around visitors, or in busy places.</p>
+          <p class="text-white/90 text-base mt-3 leading-relaxed">No. It's for any dog who does great at home and struggles outside, in adolescence, around visitors, or in busy places.</p>
         </details>
         <details class="group bg-white/5 rounded-xl px-5 py-4">
-          <summary class="cursor-pointer text-white font-semibold list-none flex justify-between items-center">
+          <summary class="cursor-pointer text-white text-base md:text-lg font-semibold list-none flex justify-between items-center gap-4">
             Is this a sales pitch?
-            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0">+</span>
           </summary>
-          <p class="text-white/75 mt-3 leading-relaxed">The workshop stands on its own. At the end I'll tell you how to work with me if you want more support, including a new virtual option. That's it.</p>
+          <p class="text-white/90 text-base mt-3 leading-relaxed">The workshop stands on its own. At the end I'll mention how to work with me if you want more support. That's it.</p>
         </details>
         <details class="group bg-white/5 rounded-xl px-5 py-4">
-          <summary class="cursor-pointer text-white font-semibold list-none flex justify-between items-center">
+          <summary class="cursor-pointer text-white text-base md:text-lg font-semibold list-none flex justify-between items-center gap-4">
             Do I need to be near Boston?
-            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+            <span class="text-orange group-open:rotate-45 transition-transform text-xl leading-none flex-shrink-0">+</span>
           </summary>
-          <p class="text-white/75 mt-3 leading-relaxed">No. It's online. Join from anywhere.</p>
+          <p class="text-white/90 text-base mt-3 leading-relaxed">No. It's online. Join from anywhere.</p>
         </details>
       </div>
     </div>
@@ -296,7 +290,7 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
         <span class="w-1 h-1 bg-warm-gray/30 rounded-full"></span>
         <a href="https://instagram.com/down4paws" class="hover:text-purple transition-colors">@down4paws</a>
       </div>
-      <p class="text-xs text-warm-gray/50">&copy; 2026 Down 4 Paws</p>
+      <p class="text-sm text-warm-gray">&copy; 2026 Down 4 Paws</p>
     </div>
   </footer>
 
