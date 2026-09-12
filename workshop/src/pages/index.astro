@@ -18,6 +18,7 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
       </a>
       <a
         href="#register"
+        data-cta="header"
         class="font-display text-sm md:text-base bg-orange text-white px-4 md:px-5 py-2 rounded-full hover:bg-orange-bright transition-colors whitespace-nowrap"
       >
         Save My Free Spot
@@ -53,6 +54,7 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
 
           <a
             href="#register"
+        data-cta="hero"
             class="inline-flex items-center gap-3 font-display bg-purple text-white text-lg px-8 py-4 rounded-full hover:bg-purple-deep transition-colors"
           >
             Save My Free Spot
@@ -167,6 +169,7 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
       <div class="mt-10 text-center">
         <a
           href="#register"
+        data-cta="mid"
           class="inline-flex items-center gap-3 font-display bg-purple text-white text-lg px-8 py-4 rounded-full hover:bg-purple-deep transition-colors"
         >
           Save My Free Spot
@@ -298,4 +301,24 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
     html { scroll-behavior: smooth; }
     details summary::-webkit-details-marker { display: none; }
   </style>
+  <script>
+    import { track } from '@vercel/analytics';
+
+    document.querySelectorAll<HTMLAnchorElement>('a[data-cta]').forEach((a) => {
+      a.addEventListener('click', () => {
+        track('cta_click', { location: a.dataset.cta ?? 'unknown' });
+      });
+    });
+
+    const register = document.getElementById('register');
+    if (register && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          track('register_view');
+          io.disconnect();
+        }
+      }, { threshold: 0.25 });
+      io.observe(register);
+    }
+  </script>
 </Layout>

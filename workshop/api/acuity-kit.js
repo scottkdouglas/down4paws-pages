@@ -18,6 +18,7 @@
 // lowercased, whitespace collapsed) -> { tagId, sequenceId? }. Then `vercel --prod`.
 
 import { timingSafeEqual } from 'node:crypto';
+import { track } from '@vercel/analytics/server';
 
 const TARGETS = {
   'zz test class (ignore)': { tagId: 23056184, sequenceId: 2881955 },                 // "ZZ Test - Acuity Bridge", remove after rollout
@@ -107,6 +108,16 @@ export default {
       if (target.sequenceId) {
         const seq = await kit('POST', `/sequences/${target.sequenceId}/subscribers/${sub.id}`, {});
         sequenceStatus = seq.status;
+      }
+      // Funnel step 3 in Vercel Web Analytics (visitors -> cta_click -> registration).
+      // Visitor identity comes from the beacon's forwarded headers; origin is pinned to our
+      // page rather than Acuity's confirmation URL. No email or name is sent.
+      try {
+        const headers = Object.fromEntries(request.headers);
+        headers.referer = 'https://workshop.down4paws.com/';
+        await track('registration', { workshop: typeName, status: tagged.status === 201 ? 'new' : 'repeat' }, { headers });
+      } catch (err) {
+        console.error(JSON.stringify({ evt: 'acuity-kit', outcome: 'track-error', message: err.message }));
       }
       return done(tagged.status === 201 ? 'added' : 'already', {
         email,
