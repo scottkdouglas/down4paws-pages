@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import Empty from '@/components/ui/Empty.astro';
+import { fmtDate } from '@/lib/dates';
+import hub from '@hub';
+
+const recordings = [...(await getCollection('recordings'))].sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+const tz = hub.client.timezone;
+---
+
+{
+  recordings.length === 0 ? (
+    <Empty message="No recordings yet." />
+  ) : (
+    <div class="overflow-x-auto rounded-lg border border-line bg-white">
+      <table class="w-full text-left text-sm">
+        <thead>
+          <tr class="border-b border-line text-xs uppercase tracking-wide text-ink-soft">
+            <th class="px-4 py-3 font-medium">Date</th>
+            <th class="px-4 py-3 font-medium">Call</th>
+            <th class="px-4 py-3 font-medium">Recording</th>
+            <th class="px-4 py-3 font-medium">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {recordings.map((r) => (
+            <tr class="border-b border-line last:border-0">
+              <td class="px-4 py-3 align-top text-ink-soft">{fmtDate(r.data.date, tz)}</td>
+              <td class="px-4 py-3 align-top font-medium text-ink">{r.data.call}</td>
+              <td class="px-4 py-3 align-top">
+                <a href={r.data.href} class="text-ink underline underline-offset-2 hover:text-brand">
+                  Watch
+                </a>
+              </td>
+              <td class="px-4 py-3 align-top text-ink">
+                <ul class="list-disc space-y-1 pl-4">
+                  {r.data.bullets.map((b) => (
+                    <li>{b}</li>
+                  ))}
+                </ul>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}

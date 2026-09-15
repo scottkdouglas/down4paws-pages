@@ -1,0 +1,51 @@
+---
+import hub from '@hub';
+import { enabledModules } from '@/lib/modules';
+
+interface Props {
+  activeHref?: string;
+}
+
+const { activeHref = '/' } = Astro.props;
+
+const navItems = [
+  { label: 'Dashboard', href: '/' },
+  ...enabledModules().map((m) => ({ label: m.label, href: m.href })),
+];
+---
+
+<nav class="border-b border-line bg-white md:w-56 md:shrink-0 md:border-b-0 md:border-r">
+  <div class="flex items-center gap-2 px-4 py-4 md:flex-col md:items-start md:gap-1 md:px-5 md:py-6">
+    <a href="/" class="flex items-center">
+      <img src={hub.brand.logo} alt={hub.client.shortName} class="h-6 w-auto" />
+    </a>
+    <span class="text-sm font-medium text-ink">{hub.client.name}</span>
+  </div>
+  <ul class="flex gap-1 overflow-x-auto px-4 pb-3 md:flex-col md:gap-0.5 md:px-3 md:pb-4">
+    {
+      navItems.map((item) => (
+        <li class="shrink-0">
+          <a
+            href={item.href}
+            class:list={[
+              'block whitespace-nowrap rounded-md px-3 py-2 text-sm',
+              activeHref === item.href
+                ? 'bg-brand/10 font-medium text-brand'
+                : 'text-ink-soft hover:bg-surface-soft',
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="hidden border-t border-line px-5 py-4 md:block">
+    <p class="text-xs text-ink-soft">{hub.agency.name}</p>
+    <form method="post" action="/logout" class="mt-1">
+      <button type="submit" class="text-xs text-ink-soft underline underline-offset-2 hover:text-ink">
+        Log out
+      </button>
+    </form>
+  </div>
+</nav>

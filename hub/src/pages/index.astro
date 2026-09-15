@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import HubLayout from '@/layouts/HubLayout.astro';
+import hub from '@hub';
+import Card from '@/components/ui/Card.astro';
+import ThisWeek from '@/components/widgets/ThisWeek.astro';
+import NumbersStrip from '@/components/widgets/NumbersStrip.astro';
+import DoneDelivered from '@/components/widgets/DoneDelivered.astro';
+import OnTheBoard from '@/components/widgets/OnTheBoard.astro';
+import ComingUp from '@/components/widgets/ComingUp.astro';
+import ScoreboardWidget from '@/components/widgets/ScoreboardWidget.astro';
+import type { HubLink } from '@/lib/types';
+
+const hasNumbers = hub.modules.includes('numbers');
+const hasBoard = hub.modules.includes('board');
+const hasScoreboard = hub.modules.includes('scoreboard');
+
+const numberEntries = hasNumbers ? await getCollection('numbers') : [];
+
+const groupedLinks = new Map<string, HubLink[]>();
+for (const link of hub.links) {
+  const key = link.group ?? 'other';
+  const existing = groupedLinks.get(key);
+  if (existing) {
+    existing.push(link);
+  } else {
+    groupedLinks.set(key, [link]);
+  }
+}
+---
+
+<HubLayout title="Dashboard" activeHref="/">
+  <div class="space-y-6">
+    <ThisWeek />
+
+    {hasNumbers && <NumbersStrip metrics={numberEntries} />}
+
+    {
+      hasBoard && (
+        <div class="grid gap-6 lg:grid-cols-2">
+          <DoneDelivered />
+          <ComingUp />
+        </div>
+      )
+    }
+    {hasBoard && <OnTheBoard />}
+
+    {hasScoreboard && <ScoreboardWidget />}
+
+    <Card title="Links">
+      <div class="grid gap-4 sm:grid-cols-3">
+        {
+          [...groupedLinks.entries()].map(([group, links]) => (
+            <div>
+              <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                {group}
+              </p>
+              <ul class="space-y-1">
+                {links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="text-sm text-ink underline underline-offset-2 hover:text-brand"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </Card>
+  </div>
+</HubLayout>

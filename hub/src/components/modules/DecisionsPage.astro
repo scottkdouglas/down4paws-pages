@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import Empty from '@/components/ui/Empty.astro';
+import { fmtDate } from '@/lib/dates';
+import hub from '@hub';
+
+const decisions = [...(await getCollection('decisions'))].sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+const tz = hub.client.timezone;
+const rendered = await Promise.all(decisions.map((d) => render(d)));
+---
+
+{
+  decisions.length === 0 ? (
+    <Empty message="No decisions logged yet." />
+  ) : (
+    <div class="overflow-x-auto rounded-lg border border-line bg-white">
+      <table class="w-full text-left text-sm">
+        <thead>
+          <tr class="border-b border-line text-xs uppercase tracking-wide text-ink-soft">
+            <th class="px-4 py-3 font-medium">Date</th>
+            <th class="px-4 py-3 font-medium">Decision</th>
+            <th class="px-4 py-3 font-medium">Why</th>
+            <th class="px-4 py-3 font-medium">Who</th>
+          </tr>
+        </thead>
+        <tbody>
+          {decisions.map((d, i) => {
+            const { Content } = rendered[i];
+            return (
+              <tr class="border-b border-line last:border-0">
+                <td class="px-4 py-3 align-top text-ink-soft">{fmtDate(d.data.date, tz)}</td>
+                <td class="px-4 py-3 align-top font-medium text-ink">{d.data.decision}</td>
+                <td class="px-4 py-3 align-top text-ink">
+                  <Content />
+                </td>
+                <td class="px-4 py-3 align-top text-ink-soft">{d.data.who}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  )
+}

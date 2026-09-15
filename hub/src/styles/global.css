@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand: var(--hub-primary);
+  --color-brand-2: var(--hub-secondary);
+  --color-ink: #14181c;
+  --color-ink-soft: #5b6470;
+  --color-line: #e2e5e9;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f6f7f8;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-surface-soft);
+  color: var(--color-ink);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Soft brand tints, used sparingly as accents (never as body backgrounds). */
+.tint-brand {
+  background-color: color-mix(in oklab, var(--hub-primary) 10%, white);
+}
+
+.tint-brand-2 {
+  background-color: color-mix(in oklab, var(--hub-secondary) 10%, white);
+}

@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import TaskCard from './TaskCard.astro';
+import Empty from '@/components/ui/Empty.astro';
+
+interface Props {
+  label: string;
+  cards: CollectionEntry<'cards'>[];
+}
+
+const { label, cards } = Astro.props;
+---
+
+<div class="w-[240px] min-w-[240px] shrink-0 xl:w-auto xl:min-w-0">
+  <div class="mb-2 flex items-center justify-between">
+    <h2 class="text-sm font-semibold text-ink">{label}</h2>
+    <span class="text-xs text-ink-soft">{cards.length}</span>
+  </div>
+  <div class="space-y-2">
+    {
+      cards.length === 0 ? (
+        <Empty message="No cards in this column." />
+      ) : (
+        cards.map((card) => <TaskCard card={card} />)
+      )
+    }
+  </div>
+</div>

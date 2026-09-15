@@ -1,0 +1,6 @@
+[
+  {"id": "leads-quarter", "label": "Leads this quarter", "value": "120", "source": "Manual", "asOf": "2026-09-15", "order": 1, "group": "Growth"},
+  {"id": "lead-to-consult", "label": "Lead to consult", "value": "24%", "source": "Manual", "asOf": "2026-09-15", "order": 2, "group": "Growth"},
+  {"id": "google-reviews", "label": "Google reviews", "value": "86", "source": "Manual", "asOf": "2026-09-15", "order": 3, "group": "Reputation"},
+  {"id": "newsletter-open-rate", "label": "Newsletter open rate", "value": "41%", "source": "Manual", "asOf": "2026-09-15", "order": 4, "group": "Email"}
+]

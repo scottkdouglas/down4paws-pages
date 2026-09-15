@@ -1,0 +1,15 @@
+---
+import hub from '@hub';
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+const tag = hub.serviceTags.find((t) => t.id === id);
+const label = tag?.label ?? id;
+---
+
+<span class="inline-flex items-center rounded-full bg-brand-2/10 px-2 py-0.5 text-xs font-medium text-brand-2">
+  {label}
+</span>

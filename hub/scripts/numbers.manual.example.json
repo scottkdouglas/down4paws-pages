@@ -1,0 +1,12 @@
+[
+  {
+    "id": "monthly-leads",
+    "label": "Monthly leads",
+    "value": "42",
+    "note": "Qualified and unqualified leads",
+    "source": "Manual",
+    "asOf": "2026-09-15",
+    "order": 1,
+    "group": "Lead generation"
+  }
+]

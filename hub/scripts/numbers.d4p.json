@@ -1,0 +1,5 @@
+[
+  {"id": "leads-quarter", "label": "Leads this quarter", "value": "10", "note": "Q3 to date. Q2 had 50, Q1 had 34.", "source": "Lead sheet", "asOf": "2026-08-31", "order": 1, "group": "Growth"},
+  {"id": "lead-to-consult", "label": "Lead to consult", "value": "30%", "note": "Q2. Lead to package was 10%.", "source": "Lead sheet", "asOf": "2026-06-30", "order": 2, "group": "Growth"},
+  {"id": "google-reviews", "label": "Google reviews", "value": "83", "note": "5.0 rating. #1 in the Norwood local pack.", "source": "Google", "asOf": "2026-08-07", "order": 3, "group": "Reputation"}
+]

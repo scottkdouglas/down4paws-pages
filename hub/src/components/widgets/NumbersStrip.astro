@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import MetricCard from './MetricCard.astro';
+import Empty from '@/components/ui/Empty.astro';
+
+interface Props {
+  metrics: CollectionEntry<'numbers'>[];
+}
+
+const { metrics } = Astro.props;
+const sorted = [...metrics].sort((a, b) => a.data.order - b.data.order);
+---
+
+{
+  sorted.length === 0 ? (
+    <Empty message="No numbers yet." />
+  ) : (
+    <div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
+      {sorted.map((metric) => <MetricCard metric={metric} />)}
+    </div>
+  )
+}

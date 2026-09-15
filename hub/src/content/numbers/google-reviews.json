@@ -1,0 +1,10 @@
+{
+  "id": "google-reviews",
+  "label": "Google reviews",
+  "value": "83",
+  "note": "5.0 rating. #1 in the Norwood local pack.",
+  "source": "Google",
+  "asOf": "2026-08-07",
+  "order": 3,
+  "group": "Reputation"
+}

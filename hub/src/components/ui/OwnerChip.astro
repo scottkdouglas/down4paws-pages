@@ -1,0 +1,20 @@
+---
+import hub from '@hub';
+
+interface Props {
+  initials: string;
+}
+
+const { initials } = Astro.props;
+const isAgency = initials.toUpperCase() === hub.agency.initials.toUpperCase();
+---
+
+<span
+  class:list={[
+    'inline-flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-semibold',
+    isAgency ? 'bg-brand text-white' : 'bg-surface-soft text-ink-soft',
+  ]}
+  title={initials}
+>
+  {initials}
+</span>

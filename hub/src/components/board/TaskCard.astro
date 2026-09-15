@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import hub from '@hub';
+import Tag from '@/components/ui/Tag.astro';
+import OverdueBadge from '@/components/ui/OverdueBadge.astro';
+import OwnerChip from '@/components/ui/OwnerChip.astro';
+import { fmtDate, isOverdue } from '@/lib/dates';
+
+interface Props {
+  card: CollectionEntry<'cards'>;
+}
+
+const { card } = Astro.props;
+const { title, status, category, owner, due } = card.data;
+const tz = hub.client.timezone;
+const overdue = isOverdue(due, status === 'done', tz);
+---
+
+<div class="rounded-md border border-line bg-white p-3">
+  <div class="mb-2 flex items-center justify-between gap-2">
+    <Tag id={category} />
+    {overdue && <OverdueBadge />}
+  </div>
+  <p class="text-sm font-medium text-ink">{title}</p>
+  <div class="mt-2 flex items-center justify-between">
+    {due ? <span class="text-xs text-ink-soft">{fmtDate(due, tz)}</span> : <span />}
+    <OwnerChip initials={owner} />
+  </div>
+</div>

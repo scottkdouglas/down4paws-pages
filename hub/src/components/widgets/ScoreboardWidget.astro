@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import Card from '@/components/ui/Card.astro';
+import Empty from '@/components/ui/Empty.astro';
+import OverdueBadge from '@/components/ui/OverdueBadge.astro';
+import { fmtDate, isOverdue } from '@/lib/dates';
+import hub from '@hub';
+
+const items = await getCollection('scoreboard');
+const open = items.filter((i) => !i.data.done);
+const weOwe = open.filter((i) => i.data.direction === 'we-owe');
+const youOwe = open.filter((i) => i.data.direction === 'you-owe');
+const tz = hub.client.timezone;
+---
+
+<Card title="Scoreboard">
+  <div class="grid gap-6 sm:grid-cols-2">
+    <div>
+      <h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-ink-soft">
+        What we owe you
+      </h3>
+      {
+        weOwe.length === 0 ? (
+          <Empty message="Nothing outstanding." />
+        ) : (
+          <ul class="space-y-2">
+            {weOwe.map((item) => (
+              <li class="border-b border-line pb-2 last:border-0 last:pb-0">
+                <p class="text-sm font-medium text-ink">{item.data.title}</p>
+                <div class="mt-1 flex items-center gap-2 text-xs text-ink-soft">
+                  <span>{item.data.source}</span>
+                  {item.data.due && <span>{fmtDate(item.data.due, tz)}</span>}
+                  {isOverdue(item.data.due, item.data.done, tz) && <OverdueBadge />}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+    <div>
+      <h3 class="mb-2 text-xs font-semibold uppercase tracking-wide text-ink-soft">
+        What we need from you
+      </h3>
+      {
+        youOwe.length === 0 ? (
+          <Empty message="Nothing needed right now." />
+        ) : (
+          <ul class="space-y-2">
+            {youOwe.map((item) => (
+              <li class="border-b border-line pb-2 last:border-0 last:pb-0">
+                <p class="text-sm font-medium text-ink">{item.data.title}</p>
+                <div class="mt-1 flex items-center gap-2 text-xs text-ink-soft">
+                  <span>{item.data.source}</span>
+                  {item.data.due && <span>{fmtDate(item.data.due, tz)}</span>}
+                  {isOverdue(item.data.due, item.data.done, tz) && <OverdueBadge />}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </div>
+</Card>

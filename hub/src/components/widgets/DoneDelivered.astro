@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import Card from '@/components/ui/Card.astro';
+import Empty from '@/components/ui/Empty.astro';
+import Tag from '@/components/ui/Tag.astro';
+import { fmtDate } from '@/lib/dates';
+import hub from '@hub';
+
+const cards = await getCollection('cards');
+const done = cards
+  .filter((c) => c.data.status === 'done')
+  .sort((a, b) => (b.data.doneAt?.getTime() ?? 0) - (a.data.doneAt?.getTime() ?? 0))
+  .slice(0, 6);
+const tz = hub.client.timezone;
+---
+
+<Card title="Done and Delivered">
+  {
+    done.length === 0 ? (
+      <Empty message="Nothing delivered yet." />
+    ) : (
+      <ul class="space-y-2">
+        {done.map((card) => {
+          const link = card.data.links?.[0];
+          return (
+            <li class="flex items-center justify-between gap-3 border-b border-line pb-2 last:border-0 last:pb-0">
+              <div class="min-w-0">
+                <div class="mb-1">
+                  <Tag id={card.data.category} />
+                </div>
+                {link ? (
+                  <a
+                    href={link.href}
+                    class="text-sm font-medium text-ink underline underline-offset-2 hover:text-brand"
+                  >
+                    {card.data.title}
+                  </a>
+                ) : (
+                  <p class="text-sm font-medium text-ink">{card.data.title}</p>
+                )}
+              </div>
+              {card.data.doneAt && (
+                <span class="shrink-0 text-xs text-ink-soft">{fmtDate(card.data.doneAt, tz)}</span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    )
+  }
+</Card>

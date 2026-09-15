@@ -1,0 +1,11 @@
+---
+import { getCollection } from 'astro:content';
+import Card from '@/components/ui/Card.astro';
+import MiniBoard from '@/components/board/MiniBoard.astro';
+
+const cards = await getCollection('cards');
+---
+
+<Card title="On the Board">
+  <MiniBoard cards={cards} />
+</Card>

@@ -1,0 +1,21 @@
+---
+import HubLayout from '@/layouts/HubLayout.astro';
+import { MODULES, enabledModules } from '@/lib/modules';
+import type { ModuleId } from '@/lib/types';
+
+// Only enabled modules get a route, so a disabled module leaves no file in dist.
+export function getStaticPaths() {
+  return enabledModules().map((m) => ({
+    params: { module: m.href.replace(/^\//, '') },
+    props: { id: m.id },
+  }));
+}
+
+const { id } = Astro.props as { id: ModuleId };
+const mod = MODULES[id];
+const ModulePage = mod.page;
+---
+
+<HubLayout title={mod.label} activeHref={mod.href}>
+  <ModulePage />
+</HubLayout>

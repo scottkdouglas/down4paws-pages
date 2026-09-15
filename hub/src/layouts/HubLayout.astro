@@ -1,0 +1,43 @@
+---
+import '@/styles/global.css';
+import hub from '@hub';
+import Sidebar from '@/components/nav/Sidebar.astro';
+import SprintHeader from '@/components/nav/SprintHeader.astro';
+import LastUpdated from '@/components/nav/LastUpdated.astro';
+
+interface Props {
+  title: string;
+  activeHref?: string;
+}
+
+const { title, activeHref } = Astro.props;
+---
+
+<html
+  lang="en"
+  style={`--hub-primary: ${hub.brand.primary}; --hub-secondary: ${hub.brand.secondary};`}
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{title} · {hub.client.shortName} Hub</title>
+    <link rel="icon" type={hub.brand.logo.endsWith('.svg') ? 'image/svg+xml' : 'image/png'} href={hub.brand.logo} />
+  </head>
+  <body>
+    <div class="md:flex md:min-h-screen">
+      <Sidebar activeHref={activeHref} />
+      <div class="min-w-0 flex-1">
+        <main class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+          <SprintHeader />
+          <div class="mt-6">
+            <slot />
+          </div>
+        </main>
+        <footer class="mx-auto max-w-5xl px-4 pb-8 sm:px-6 lg:px-8">
+          <LastUpdated />
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import KanbanColumn from './KanbanColumn.astro';
+
+interface Props {
+  cards: CollectionEntry<'cards'>[];
+}
+
+const { cards } = Astro.props;
+
+const byStatus = (status: string) =>
+  cards.filter((c) => c.data.status === status).sort((a, b) => a.data.order - b.data.order);
+---
+
+<div class="flex gap-3 overflow-x-auto pb-1">
+  <KanbanColumn label="To Do" cards={byStatus('todo')} />
+  <KanbanColumn label="Doing" cards={byStatus('doing')} />
+  <KanbanColumn label="In Review" cards={byStatus('review')} />
+</div>

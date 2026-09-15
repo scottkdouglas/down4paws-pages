@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Card from '@/components/ui/Card.astro';
+import Empty from '@/components/ui/Empty.astro';
+import Tag from '@/components/ui/Tag.astro';
+
+const cards = await getCollection('cards');
+const upcoming = cards.filter((c) => c.data.nextSprint).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Card title="Coming Up Next Sprint">
+  {
+    upcoming.length === 0 ? (
+      <Empty message="Nothing queued for next sprint." />
+    ) : (
+      <ul class="space-y-2">
+        {upcoming.map((card) => (
+          <li class="flex items-center justify-between gap-3 border-b border-line pb-2 last:border-0 last:pb-0">
+            <p class="text-sm font-medium text-ink">{card.data.title}</p>
+            <Tag id={card.data.category} />
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</Card>

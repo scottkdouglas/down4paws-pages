@@ -1,0 +1,44 @@
+---
+import hub from '@hub';
+import { sprintLabel } from '@/lib/sprint';
+
+const tz = hub.client.timezone;
+const label = sprintLabel(hub, tz);
+---
+
+<header
+  class="flex flex-col gap-2 border-b-2 border-brand pb-4 sm:flex-row sm:items-end sm:justify-between"
+>
+  <div>
+    <h1 class="text-xl font-semibold text-ink">{hub.client.name}</h1>
+    <p
+      id="sprint-subline"
+      class="mt-1 text-sm text-ink-soft"
+      data-sprint-start={hub.sprint.start}
+      data-sprint-length={hub.sprint.lengthDays}
+      data-sprint-number={hub.sprint.number}
+      data-sprint-total={hub.sprint.total}
+      data-timezone={tz}
+    >
+      {label}
+    </p>
+  </div>
+  <p class="text-sm text-ink-soft">Next update: {hub.nextUpdateDay}</p>
+</header>
+
+<script>
+  const el = document.getElementById('sprint-subline');
+  if (el) {
+    // Same calendar math as src/lib/sprint.ts: both dates pinned to UTC midnight, clamped to [1, length].
+    const length = Number(el.dataset.sprintLength);
+    const number = el.dataset.sprintNumber;
+    const total = el.dataset.sprintTotal;
+    const tz = el.dataset.timezone ?? 'UTC';
+    const [sy, sm, sd] = String(el.dataset.sprintStart).split('-').map(Number);
+    const parts = new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+    const [ty, tm, td] = parts.split('-').map(Number);
+    const elapsed = Math.round((Date.UTC(ty, tm - 1, td) - Date.UTC(sy, sm - 1, sd)) / 86_400_000);
+    const day = Math.min(length, Math.max(1, elapsed + 1));
+    el.textContent = `Sprint ${number} of ${total} · Day ${day} of ${length}`;
+  }
+</script>

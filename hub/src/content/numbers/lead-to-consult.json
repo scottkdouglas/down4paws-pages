@@ -1,0 +1,10 @@
+{
+  "id": "lead-to-consult",
+  "label": "Lead to consult",
+  "value": "30%",
+  "note": "Q2. Lead to package was 10%.",
+  "source": "Lead sheet",
+  "asOf": "2026-06-30",
+  "order": 2,
+  "group": "Growth"
+}

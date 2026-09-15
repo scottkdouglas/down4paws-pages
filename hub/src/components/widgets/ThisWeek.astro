@@ -1,0 +1,56 @@
+---
+import { getCollection, render } from 'astro:content';
+import Card from '@/components/ui/Card.astro';
+import Empty from '@/components/ui/Empty.astro';
+import { fmtDateLong } from '@/lib/dates';
+import hub from '@hub';
+
+const updates = await getCollection('updates');
+const sorted = [...updates].sort((a, b) => b.data.weekOf.getTime() - a.data.weekOf.getTime());
+const latest = sorted[0];
+const tz = hub.client.timezone;
+const Content = latest ? (await render(latest)).Content : undefined;
+---
+
+<Card title="This Week">
+  {
+    !latest ? (
+      <Empty message="No updates yet." />
+    ) : (
+      <div>
+        <p class="mb-3 text-xs text-ink-soft">Week of {fmtDateLong(latest.data.weekOf, tz)}</p>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-ink-soft">Shipped</p>
+            <ul class="mt-1 list-disc space-y-1 pl-4 text-sm text-ink">
+              {latest.data.shipped.map((line) => <li>{line}</li>)}
+            </ul>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-ink-soft">Decided</p>
+            <ul class="mt-1 list-disc space-y-1 pl-4 text-sm text-ink">
+              {latest.data.decided.map((line) => <li>{line}</li>)}
+            </ul>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-ink-soft">Next week</p>
+            <ul class="mt-1 list-disc space-y-1 pl-4 text-sm text-ink">
+              {latest.data.nextWeek.map((line) => <li>{line}</li>)}
+            </ul>
+          </div>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wide text-ink-soft">Need from you</p>
+            <ul class="mt-1 list-disc space-y-1 pl-4 text-sm text-ink">
+              {latest.data.needFromYou.map((line) => <li>{line}</li>)}
+            </ul>
+          </div>
+        </div>
+        {Content && (
+          <div class="mt-4 border-t border-line pt-4 text-sm text-ink">
+            <Content />
+          </div>
+        )}
+      </div>
+    )
+  }
+</Card>

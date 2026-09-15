@@ -1,0 +1,60 @@
+---
+import LoginLayout from '@/layouts/LoginLayout.astro';
+import hub from '@hub';
+
+// This page is static. The form posts to /login, which the edge middleware
+// intercepts before any file is served, so no credential logic ships here.
+---
+
+<LoginLayout title={`${hub.client.name} Partnership Hub`}>
+  <div class="w-full max-w-sm rounded-2xl bg-white p-8 shadow-lg ring-1 ring-slate-900/5">
+    <img src={hub.brand.logo} alt={hub.client.name} class="mx-auto h-10 w-auto" />
+
+    <h1 class="mt-6 text-center text-lg font-semibold text-slate-900">
+      {hub.client.name} Partnership Hub
+    </h1>
+    <p class="mt-1 text-center text-sm text-slate-500">
+      Enter the password {hub.agency.name} gave you.
+    </p>
+
+    <form method="post" action="/login" class="mt-6 space-y-4">
+      <div>
+        <label for="password" class="block text-sm font-medium text-slate-700">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+          autofocus
+          class="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-slate-900 shadow-sm outline-none focus:border-[var(--hub-primary)] focus:ring-2 focus:ring-[var(--hub-secondary)]"
+        />
+      </div>
+
+      <p
+        id="login-error"
+        hidden
+        role="alert"
+        class="text-sm font-medium text-red-600"
+      >
+        That password did not match. Try again.
+      </p>
+
+      <button
+        type="submit"
+        class="w-full rounded-lg bg-[var(--hub-primary)] px-4 py-2 font-semibold text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--hub-secondary)] focus:ring-offset-2"
+      >
+        Open the hub
+      </button>
+    </form>
+  </div>
+
+  <script is:inline>
+    // The middleware redirects a failed attempt to /login?e=1 rather than
+    // rendering an error, so the error line is revealed client side.
+    if (new URLSearchParams(window.location.search).has('e')) {
+      var el = document.getElementById('login-error');
+      if (el) el.hidden = false;
+    }
+  </script>
+</LoginLayout>

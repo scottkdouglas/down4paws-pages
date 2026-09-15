@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import KanbanColumn from '@/components/board/KanbanColumn.astro';
+
+const cards = await getCollection('cards');
+
+const sortFn = (a: (typeof cards)[number], b: (typeof cards)[number]) => {
+  if (a.data.order !== b.data.order) return a.data.order - b.data.order;
+  const aDue = a.data.due?.getTime() ?? Infinity;
+  const bDue = b.data.due?.getTime() ?? Infinity;
+  return aDue - bDue;
+};
+
+const byStatus = (status: string) => cards.filter((c) => c.data.status === status).sort(sortFn);
+---
+
+<div class="flex gap-3 overflow-x-auto pb-2 xl:grid xl:grid-cols-5 xl:overflow-visible">
+  <KanbanColumn label="Backlog" cards={byStatus('backlog')} />
+  <KanbanColumn label="To Do" cards={byStatus('todo')} />
+  <KanbanColumn label="Doing" cards={byStatus('doing')} />
+  <KanbanColumn label="In Review" cards={byStatus('review')} />
+  <KanbanColumn label="Done" cards={byStatus('done')} />
+</div>

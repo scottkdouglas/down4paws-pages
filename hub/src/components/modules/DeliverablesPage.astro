@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Card from '@/components/ui/Card.astro';
+import Empty from '@/components/ui/Empty.astro';
+import Tag from '@/components/ui/Tag.astro';
+import { fmtDateLong } from '@/lib/dates';
+import hub from '@hub';
+
+const deliverables = [...(await getCollection('deliverables'))].sort(
+  (a, b) => b.data.delivered.getTime() - a.data.delivered.getTime()
+);
+const tz = hub.client.timezone;
+---
+
+{
+  deliverables.length === 0 ? (
+    <Empty message="Nothing delivered yet." />
+  ) : (
+    <div class="space-y-4">
+      {deliverables.map((item) => (
+        <Card>
+          <div class="mb-2 flex items-center justify-between gap-2">
+            <h3 class="text-sm font-semibold text-ink">{item.data.title}</h3>
+            <Tag id={item.data.category} />
+          </div>
+          <p class="mb-3 text-xs text-ink-soft">Delivered {fmtDateLong(item.data.delivered, tz)}</p>
+          <dl class="space-y-2 text-sm">
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                What it is
+              </dt>
+              <dd class="text-ink">{item.data.what}</dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                How to use it
+              </dt>
+              <dd class="text-ink">
+                {item.data.howToUse.startsWith('http') ? (
+                  <a
+                    href={item.data.howToUse}
+                    class="underline underline-offset-2 hover:text-brand"
+                  >
+                    {item.data.howToUse}
+                  </a>
+                ) : (
+                  item.data.howToUse
+                )}
+              </dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                Where it lives
+              </dt>
+              <dd>
+                <a
+                  href={item.data.whereItLives}
+                  class="text-ink underline underline-offset-2 hover:text-brand"
+                >
+                  {item.data.whereItLives}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                Client owner
+              </dt>
+              <dd class="text-ink">{item.data.clientOwner}</dd>
+            </div>
+          </dl>
+        </Card>
+      ))}
+    </div>
+  )
+}

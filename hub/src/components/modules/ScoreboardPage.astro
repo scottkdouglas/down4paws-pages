@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import Card from '@/components/ui/Card.astro';
+import ScoreboardWidget from '@/components/widgets/ScoreboardWidget.astro';
+import Empty from '@/components/ui/Empty.astro';
+import { fmtDate } from '@/lib/dates';
+import hub from '@hub';
+
+const items = await getCollection('scoreboard');
+const done = items
+  .filter((i) => i.data.done)
+  .sort((a, b) => (b.data.doneAt?.getTime() ?? 0) - (a.data.doneAt?.getTime() ?? 0));
+const tz = hub.client.timezone;
+---
+
+<div class="space-y-6">
+  <ScoreboardWidget />
+  <Card>
+    <details>
+      <summary class="cursor-pointer text-sm font-semibold text-ink">Done ({done.length})</summary>
+      <div class="mt-3">
+        {
+          done.length === 0 ? (
+            <Empty message="Nothing completed yet." />
+          ) : (
+            <ul class="space-y-2">
+              {done.map((item) => (
+                <li class="flex items-center justify-between border-b border-line pb-2 text-sm last:border-0 last:pb-0">
+                  <span class="text-ink">{item.data.title}</span>
+                  {item.data.doneAt && (
+                    <span class="text-xs text-ink-soft">{fmtDate(item.data.doneAt, tz)}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </div>
+    </details>
+  </Card>
+</div>

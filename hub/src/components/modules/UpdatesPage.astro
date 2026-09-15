@@ -1,0 +1,68 @@
+---
+import { getCollection, render } from 'astro:content';
+import Card from '@/components/ui/Card.astro';
+import Empty from '@/components/ui/Empty.astro';
+import { fmtDateLong } from '@/lib/dates';
+import hub from '@hub';
+
+const updates = [...(await getCollection('updates'))].sort(
+  (a, b) => b.data.weekOf.getTime() - a.data.weekOf.getTime()
+);
+const tz = hub.client.timezone;
+const rendered = await Promise.all(updates.map((u) => render(u)));
+---
+
+{
+  updates.length === 0 ? (
+    <Empty message="No updates yet." />
+  ) : (
+    <div class="space-y-6">
+      {updates.map((update, i) => {
+        const { Content } = rendered[i];
+        return (
+          <Card title={`Week of ${fmtDateLong(update.data.weekOf, tz)}`}>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-ink-soft">Shipped</p>
+                <ul class="mt-1 list-disc space-y-1 pl-4 text-sm text-ink">
+                  {update.data.shipped.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-ink-soft">Decided</p>
+                <ul class="mt-1 list-disc space-y-1 pl-4 text-sm text-ink">
+                  {update.data.decided.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-ink-soft">Next week</p>
+                <ul class="mt-1 list-disc space-y-1 pl-4 text-sm text-ink">
+                  {update.data.nextWeek.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                  Need from you
+                </p>
+                <ul class="mt-1 list-disc space-y-1 pl-4 text-sm text-ink">
+                  {update.data.needFromYou.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div class="mt-4 border-t border-line pt-4 text-sm text-ink">
+              <Content />
+            </div>
+          </Card>
+        );
+      })}
+    </div>
+  )
+}
