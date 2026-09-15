@@ -167,3 +167,7 @@ scripts/smoke.sh <deployed-url> <password>
 Logs in, then curls `/`, `/board`, `/numbers`, `/scoreboard`, `/decisions`,
 `/deliverables`, `/recordings`, and `/updates`, and fails loudly on a non-200
 or an empty body.
+
+## Deploying this hub
+
+This hub lives inside the `down4paws-pages` repo, and the Vercel project `down4paws-hub` is git-connected with Root Directory `hub`. A push to `main` that touches anything under `hub/` deploys it; pushes that do not touch `hub/` are skipped by the ignore command. Do not run `vercel --prod` here: the repo root is linked to a different Vercel project.
