@@ -30,3 +30,5 @@ pnpm-debug.log*
 
 # symlinked node_modules in local instances
 node_modules
+.vercel
+.env*
