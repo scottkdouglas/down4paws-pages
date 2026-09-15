@@ -36,6 +36,8 @@ export interface HubConfig {
     logoOnDark?: string;
     /** Backdrop behind the logo, for logos drawn for dark sites. Hex color. */
     logoBackground?: string;
+    /** Small square icon for the browser tab. Falls back to logo. */
+    favicon?: string;
     primary: string;
     secondary: string;
   };

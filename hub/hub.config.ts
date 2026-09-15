@@ -3,7 +3,7 @@ import type { HubConfig } from '@/lib/types';
 const hub = {
   client: { name: 'Down 4 Paws', shortName: 'Down 4 Paws', slug: 'down4paws', ownerName: 'Pam', ownerInitials: 'PB', timezone: 'America/New_York' },
   agency: { name: 'SKD Media', initials: 'SD' },
-  brand: { logo: '/logo.png', primary: '#613393', secondary: '#F36E21' },
+  brand: { logo: '/logo.png', primary: '#613393', secondary: '#F36E21', favicon: '/favicon.png' },
   sprint: { number: 1, total: 3, start: '2026-09-15', lengthDays: 90 },
   nextUpdateDay: 'Monday',
   modules: ['board', 'numbers', 'scoreboard', 'updates', 'decisions', 'deliverables', 'recordings'],

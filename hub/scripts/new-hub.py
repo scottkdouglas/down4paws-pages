@@ -134,6 +134,8 @@ def parse_link(value: str) -> tuple[str, str, str]:
 
 def render_config(args: argparse.Namespace, logo_href: str) -> str:
     logo_bg = f", logoBackground: '{ts_string(args.logo_background)}'" if getattr(args, 'logo_background', None) else ''
+    fav = getattr(args, 'favicon_href', None)
+    logo_bg += f", favicon: '{fav}'" if fav else ''
     modules = ", ".join(f"'{ts_string(item)}'" for item in args.modules)
     tags = "\n".join(
         f"    {{ id: '{ts_string(tag_id)}', label: '{ts_string(label)}' }}," for tag_id, label in args.tags
@@ -191,6 +193,7 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--primary", required=True)
     result.add_argument("--secondary", required=True)
     result.add_argument("--logo-background", default=None, help="hex backdrop behind the logo, for logos drawn for dark sites")
+    result.add_argument("--favicon", type=Path, default=None, help="square PNG or SVG for the browser tab; copied to public/favicon.<ext>")
     result.add_argument("--logo", type=Path, required=True)
     result.add_argument("--modules", type=parse_modules, default=MODULES)
     result.add_argument("--tags", type=parse_tags, default=[])
@@ -234,6 +237,12 @@ def main(argv: list[str] | None = None) -> int:
     logo_destination = args.dest / "public" / f"logo{extension}"
     logo_destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(args.logo, logo_destination)
+    if getattr(args, 'favicon', None):
+        fav_src = args.favicon.expanduser().resolve()
+        if not fav_src.is_file() or fav_src.suffix.lower() not in {'.png', '.svg'}:
+            parser().error('--favicon must be an existing PNG or SVG file')
+        shutil.copy2(fav_src, args.dest / 'public' / f'favicon{fav_src.suffix.lower()}')
+        args.favicon_href = f'/favicon{fav_src.suffix.lower()}'
     (args.dest / "hub.config.ts").write_text(render_config(args, f"/logo{extension}"), encoding="utf-8")
     for collection, example in EXAMPLES.items():
         directory = args.dest / "src" / "content" / collection
