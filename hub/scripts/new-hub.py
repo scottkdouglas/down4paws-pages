@@ -133,6 +133,7 @@ def parse_link(value: str) -> tuple[str, str, str]:
 
 
 def render_config(args: argparse.Namespace, logo_href: str) -> str:
+    logo_bg = f", logoBackground: '{ts_string(args.logo_background)}'" if getattr(args, 'logo_background', None) else ''
     modules = ", ".join(f"'{ts_string(item)}'" for item in args.modules)
     tags = "\n".join(
         f"    {{ id: '{ts_string(tag_id)}', label: '{ts_string(label)}' }}," for tag_id, label in args.tags
@@ -146,7 +147,7 @@ def render_config(args: argparse.Namespace, logo_href: str) -> str:
 const hub = {{
   client: {{ name: '{ts_string(args.name)}', shortName: '{ts_string(args.short_name)}', slug: '{ts_string(args.slug)}', ownerName: '{ts_string(args.owner)}', ownerInitials: '{ts_string(args.initials)}', timezone: '{ts_string(args.timezone)}' }},
   agency: {{ name: 'SKD Media', initials: 'SD' }},
-  brand: {{ logo: '{logo_href}', primary: '{ts_string(args.primary)}', secondary: '{ts_string(args.secondary)}' }},
+  brand: {{ logo: '{logo_href}', primary: '{ts_string(args.primary)}', secondary: '{ts_string(args.secondary)}'{logo_bg} }},
   sprint: {{ number: {args.sprint_number}, total: {args.sprint_total}, start: '{args.sprint_start}', lengthDays: {args.sprint_length} }},
   nextUpdateDay: '{ts_string(args.next_update)}',
   modules: [{modules}],
@@ -189,6 +190,7 @@ def parser() -> argparse.ArgumentParser:
     result.add_argument("--initials", required=True)
     result.add_argument("--primary", required=True)
     result.add_argument("--secondary", required=True)
+    result.add_argument("--logo-background", default=None, help="hex backdrop behind the logo, for logos drawn for dark sites")
     result.add_argument("--logo", type=Path, required=True)
     result.add_argument("--modules", type=parse_modules, default=MODULES)
     result.add_argument("--tags", type=parse_tags, default=[])

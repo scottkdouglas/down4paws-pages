@@ -1,6 +1,9 @@
 ---
 import LoginLayout from '@/layouts/LoginLayout.astro';
 import hub from '@hub';
+import type { HubConfig } from '@/lib/types';
+
+const brand: HubConfig['brand'] = hub.brand;
 
 // This page is static. The form posts to /login, which the edge middleware
 // intercepts before any file is served, so no credential logic ships here.
@@ -8,7 +11,9 @@ import hub from '@hub';
 
 <LoginLayout title={`${hub.client.name} Partnership Hub`}>
   <div class="w-full max-w-sm rounded-2xl bg-white p-8 shadow-lg ring-1 ring-slate-900/5">
-    <img src={hub.brand.logo} alt={hub.client.name} class="mx-auto h-10 w-auto" />
+    <div class="mx-auto inline-block rounded-md px-3 py-2" style={brand.logoBackground ? `background:${brand.logoBackground}` : undefined}>
+      <img src={hub.brand.logo} alt={hub.client.name} class="mx-auto h-10 w-auto" />
+    </div>
 
     <h1 class="mt-6 text-center text-lg font-semibold text-slate-900">
       {hub.client.name} Partnership Hub

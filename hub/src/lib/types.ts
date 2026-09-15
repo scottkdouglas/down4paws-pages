@@ -34,6 +34,8 @@ export interface HubConfig {
   brand: {
     logo: string;
     logoOnDark?: string;
+    /** Backdrop behind the logo, for logos drawn for dark sites. Hex color. */
+    logoBackground?: string;
     primary: string;
     secondary: string;
   };

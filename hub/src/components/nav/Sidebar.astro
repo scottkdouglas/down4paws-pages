@@ -1,5 +1,8 @@
 ---
 import hub from '@hub';
+import type { HubConfig } from '@/lib/types';
+
+const brand: HubConfig['brand'] = hub.brand;
 import { enabledModules } from '@/lib/modules';
 
 interface Props {
@@ -17,7 +20,9 @@ const navItems = [
 <nav class="border-b border-line bg-white md:w-56 md:shrink-0 md:border-b-0 md:border-r">
   <div class="flex items-center gap-2 px-4 py-4 md:flex-col md:items-start md:gap-1 md:px-5 md:py-6">
     <a href="/" class="flex items-center">
-      <img src={hub.brand.logo} alt={hub.client.shortName} class="h-6 w-auto" />
+      <span class="inline-block rounded px-1.5 py-1" style={brand.logoBackground ? `background:${brand.logoBackground}` : undefined}>
+        <img src={hub.brand.logo} alt={hub.client.shortName} class="h-6 w-auto" />
+      </span>
     </a>
     <span class="text-sm font-medium text-ink">{hub.client.name}</span>
   </div>
