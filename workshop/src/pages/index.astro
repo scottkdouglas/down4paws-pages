@@ -1,14 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Registration: Acuity appointment type "Calm Before Commands (Online Workshop)", Sun Sept 27 2026.
+// Registration: Acuity appointment type "Calm Before Commands (Online Workshop)", Sun Oct 4 2026 (moved from Sept 27, storm).
 const ACUITY_APPOINTMENT_TYPE = '97862526';
 const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&appointmentType=${ACUITY_APPOINTMENT_TYPE}`;
 ---
 
 <Layout
   title="Calm Before Commands: Free Online Dog Training Workshop | Down 4 Paws"
-  description="Join CCDT dog trainer Pam Brown for a free 90-minute live online workshop on Sunday, September 27 at 3 PM ET. Learn why your dog seems to forget training when overwhelmed, and what to do before you repeat the cue."
+  description="Join CCDT dog trainer Pam Brown for a free 90-minute live online workshop on Sunday, October 4 at 3 PM ET. Learn why your dog seems to forget training when overwhelmed, and what to do before you repeat the cue."
 >
   <!-- HEADER -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
@@ -43,7 +43,8 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
 
           <!-- Workshop details, prominent above the fold -->
           <div class="bg-white border-l-4 border-orange rounded-r-2xl shadow-sm px-5 py-4 mb-6 max-w-xl">
-            <p class="font-display text-charcoal text-xl md:text-2xl leading-snug">Sunday, September 27</p>
+            <p class="text-orange text-xs font-bold tracking-widest uppercase mb-1">New date</p>
+            <p class="font-display text-charcoal text-xl md:text-2xl leading-snug">Sunday, October 4</p>
             <p class="font-display text-charcoal text-xl md:text-2xl leading-snug">3:00 PM to 4:30 PM Eastern</p>
             <p class="text-purple font-semibold text-lg md:text-xl mt-1">Live online with Pam Brown, CCDT</p>
           </div>
@@ -232,12 +233,12 @@ const acuityUrl = `https://app.acuityscheduling.com/schedule.php?owner=24021188&
       <div class="text-center mb-8">
         <p class="font-display text-orange text-sm tracking-widest uppercase mb-3">Free registration</p>
         <h2 class="font-display text-white text-3xl md:text-4xl mb-4">Save your free spot</h2>
-        <p class="text-white text-lg md:text-xl font-semibold">Sunday, September 27</p>
+        <p class="text-white text-lg md:text-xl font-semibold">Sunday, October 4</p>
         <p class="text-white text-lg md:text-xl">3:00 PM to 4:30 PM Eastern · Live online</p>
         <p class="text-white/80 text-base mt-3">Can't make it live? Register anyway. Everyone who registers gets the replay.</p>
       </div>
 
-      <!-- Acuity Embed: Calm Before Commands, Sept 27, 2026 -->
+      <!-- Acuity Embed: Calm Before Commands, Oct 4, 2026 -->
       <div class="bg-white rounded-3xl shadow-2xl shadow-black/20 overflow-hidden">
         <iframe
           src={acuityUrl}
