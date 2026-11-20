@@ -1,0 +1,19 @@
+# Allowlist. The repo root holds private business files. Only these ship to
+# recall.down4paws.com. Add a line here for any new public page or asset.
+/*
+!/index.html
+!/workshop.html
+!/vercel.json
+!/guide
+!/loose-leash-guide
+/loose-leash-guide/.vercel
+!/EBC
+/EBC/*
+!/EBC/HEROImage-01.png
+!/EBC/Images
+/EBC/Images/*
+!/EBC/Images/D4P - Dog Icon - transparent bg.png
+!/EBC/Images/D4P - Main Logo - White bg.png
+!/EBC/Images/Pam_ProfilePic.jpeg
+!/EBC/Images/Pam_Profile-360x360.jpeg
+!/EBC/Images/workshop-hero-800.jpg
